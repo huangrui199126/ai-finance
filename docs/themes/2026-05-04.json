@@ -1,55 +1,81 @@
 {
   "date": "2026-05-04",
-  "updated_at": "2026-05-04T06:50:38.174314+00:00",
+  "updated_at": "2026-05-04T10:36:21.311762+00:00",
   "themes": [
     {
-      "theme": "Semiconductors",
-      "score": 6.0,
-      "strength": "medium",
+      "theme": "Electric Vehicles",
+      "score": 13.0,
+      "strength": "high",
       "related_symbols": [
-        "NVDA",
-        "AVGO"
+        "TSLA"
       ],
       "sample_headlines": [
-        "Prediction: This Will Be the Top-Performing Artificial Intelligence (AI) Semiconductor Stock Over the Next Year. (Hint: It's Not Nvidia, Broadcom, or Micron.)",
-        "This Is My Favorite AI Chip Stock (By Far) -- and It's Not Nvidia, Intel, or Broadcom",
-        "Bull vs. Bear: Is Taiwan Semiconductor Manufacturing Stock a Buy or Sell?"
-      ],
-      "movers": []
-    },
-    {
-      "theme": "AI & Machine Learning",
-      "score": 3.0,
-      "strength": "low",
-      "related_symbols": [
-        "NVDA",
-        "MSFT",
-        "AVGO"
-      ],
-      "sample_headlines": [
-        "Prediction: This Will Be the Top-Performing Artificial Intelligence (AI) Semiconductor Stock Over the Next Year. (Hint: It's Not Nvidia, Broadcom, or Micron.)",
-        "This Is My Favorite AI Chip Stock (By Far) -- and It's Not Nvidia, Intel, or Broadcom",
-        "MediaTek hires former TSMC executive to boost AI chip packaging"
+        "Is\u00a0National Beverage Corp. (FIZZ)\u00a0A Good Stock\u00a0To\u00a0Buy Now?",
+        "Greek manufacturing growth hits seven-month low in April, PMI shows",
+        "Microsoft Is a Mess. Is the \"Magnificent Seven\" Stock a Buy in May or Better Avoided?"
       ],
       "movers": [
         {
-          "symbol": "MSFT",
-          "change_pct": 1.63
+          "symbol": "TSLA",
+          "change_pct": 2.41
         }
       ]
     },
     {
-      "theme": "Biotech & Pharma",
+      "theme": "Energy & Oil",
+      "score": 7.0,
+      "strength": "medium",
+      "related_symbols": [
+        "XOM"
+      ],
+      "sample_headlines": [
+        "XOM Q1 Deep Dive: Operational Flexibility and Portfolio Diversity Amid Global Energy Disruptions",
+        "BofA Highlights Energy Growth Driving Caterpillar (CAT) Upside",
+        "AMGN Q1 Deep Dive: Growth Drivers Offset Patent Losses, Pipeline Progress in Focus"
+      ],
+      "movers": [
+        {
+          "symbol": "XOM",
+          "change_pct": -1.02
+        }
+      ]
+    },
+    {
+      "theme": "Space & Defense",
       "score": 3.0,
+      "strength": "low",
+      "related_symbols": [],
+      "sample_headlines": [
+        "Why AMD Stock Skyrocketed 74% in April",
+        "SpaceX will pay Elon Musk a bonus if he gets at least 1 million people to live on Mars \u2014 here's the plan"
+      ],
+      "movers": []
+    },
+    {
+      "theme": "Financials & Banking",
+      "score": 3.0,
+      "strength": "low",
+      "related_symbols": [
+        "JPM"
+      ],
+      "sample_headlines": [
+        "French manufacturing output and orders rise in April on inflation fears, PMI shows",
+        "Treasury Market on Watch for Shift in Yellen-Era Debt Playbook",
+        "\u2018Traders Need to Be Really Careful Here\u2019: Schwab on the Fed Decision and Powell\u2019s Uncertain Future"
+      ],
+      "movers": []
+    },
+    {
+      "theme": "Biotech & Pharma",
+      "score": 2.5,
       "strength": "low",
       "related_symbols": [
         "LLY",
         "MRK",
-        "ABBV",
         "AMGN"
       ],
       "sample_headlines": [
-        "MRK Q1 Deep Dive: Oncology Strength, New Launches, and Pipeline Milestones Define Quarter"
+        "Weight loss and hair loss: The growing hair treatment market from GLP-1s"
       ],
       "movers": [
         {
@@ -61,60 +87,50 @@
           "change_pct": 2.73
         },
         {
-          "symbol": "ABBV",
-          "change_pct": -2.23
-        },
-        {
           "symbol": "AMGN",
           "change_pct": -4.75
         }
       ]
     },
     {
-      "theme": "Financials & Banking",
+      "theme": "AI & Machine Learning",
       "score": 2.0,
       "strength": "low",
       "related_symbols": [
-        "GS"
+        "MSFT"
       ],
       "sample_headlines": [
-        "The Fed Just Did Something It Hasn't Done Since 1992. Here's What It Means.",
-        "Treasury Market on Watch for Shift in Yellen-Era Debt Playbook"
+        "AI Chipmakers in Korea, Taiwan Drive Asian Stocks to Record",
+        "Meet 3 Upcoming Monster Artificial Intelligence (AI) IPOs That Will Soon Join Meta, Tesla, and Broadcom in the $1 Trillion Club"
       ],
-      "movers": []
+      "movers": [
+        {
+          "symbol": "MSFT",
+          "change_pct": 1.63
+        }
+      ]
     },
     {
-      "theme": "Crypto & Fintech",
+      "theme": "Semiconductors",
       "score": 2.0,
       "strength": "low",
       "related_symbols": [],
       "sample_headlines": [
-        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto",
-        "MRK Q1 Deep Dive: Oncology Strength, New Launches, and Pipeline Milestones Define Quarter"
-      ],
-      "movers": []
-    },
-    {
-      "theme": "Energy & Oil",
-      "score": 2.0,
-      "strength": "low",
-      "related_symbols": [],
-      "sample_headlines": [
-        "Merck: All The Focus On The Pipeline",
-        "MRK Q1 Deep Dive: Oncology Strength, New Launches, and Pipeline Milestones Define Quarter"
+        "AI Chipmakers in Korea, Taiwan Drive Asian Stocks to Record"
       ],
       "movers": []
     },
     {
       "theme": "Cloud & SaaS",
-      "score": 1.0,
+      "score": 2.0,
       "strength": "low",
       "related_symbols": [
         "MSFT",
         "CRM"
       ],
       "sample_headlines": [
-        "Her Dying Wish Was To Give Their Kids A Part Of Home Equity. Now, He's Getting Married Again, And Wants To Take Back $400K From His Kids"
+        "Why The Narrative On KeyCorp (KEY) Is Shifting With New Targets And M&A Talk",
+        "How Investors Are Reacting To Halozyme Therapeutics (HALO) Hiring Big-Pharma Veteran Darren Snellgrove As CFO"
       ],
       "movers": [
         {
@@ -126,6 +142,33 @@
           "change_pct": 4.13
         }
       ]
+    },
+    {
+      "theme": "Consumer & Retail",
+      "score": 1.0,
+      "strength": "low",
+      "related_symbols": [
+        "MCD"
+      ],
+      "sample_headlines": [
+        "French manufacturing output and orders rise in April on inflation fears, PMI shows"
+      ],
+      "movers": [
+        {
+          "symbol": "MCD",
+          "change_pct": -2.37
+        }
+      ]
+    },
+    {
+      "theme": "Crypto & Fintech",
+      "score": 1.0,
+      "strength": "low",
+      "related_symbols": [],
+      "sample_headlines": [
+        "Will Bitcoin Ever Be More Valuable Than Apple? You Might Be Surprised at What Prediction Markets Say."
+      ],
+      "movers": []
     }
   ]
 }

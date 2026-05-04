@@ -1,42 +1,34 @@
 {
   "date": "2026-05-04",
-  "generated_at": "2026-05-04T06:51:06.178736+00:00",
+  "generated_at": "2026-05-04T10:36:33.554627+00:00",
   "market_mood": "cautiously bullish",
   "sentiment_breakdown": {
     "bullish": 5,
     "bearish": 3,
-    "neutral": 30
+    "neutral": 31
   },
-  "total_scanned": 49,
-  "total_analyzed": 38,
+  "total_scanned": 64,
+  "total_analyzed": 39,
   "llm_analyzed": 8,
   "top_themes": [
     {
-      "name": "Semiconductors",
+      "name": "Electric Vehicles",
+      "strength": "high",
+      "symbols": [
+        "TSLA"
+      ]
+    },
+    {
+      "name": "Energy & Oil",
       "strength": "medium",
       "symbols": [
-        "NVDA",
-        "AVGO"
+        "XOM"
       ]
     },
     {
-      "name": "AI & Machine Learning",
+      "name": "Space & Defense",
       "strength": "low",
-      "symbols": [
-        "NVDA",
-        "MSFT",
-        "AVGO"
-      ]
-    },
-    {
-      "name": "Biotech & Pharma",
-      "strength": "low",
-      "symbols": [
-        "LLY",
-        "MRK",
-        "ABBV",
-        "AMGN"
-      ]
+      "symbols": []
     }
   ],
   "top_stocks": [
@@ -109,18 +101,18 @@
       "theme": "Biotech & Pharma",
       "drivers": [
         "Significant price movement of +3.1%",
-        "18 news items in past 48h"
+        "19 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "bullish",
-      "summary": "LLY shows bullish signals with +3.1% price change and 18 recent news items.",
+      "summary": "LLY shows bullish signals with +3.1% price change and 19 recent news items.",
       "llm_used": false,
       "price": 963.33,
       "change_pct": 3.074,
       "volume_ratio": 1.33,
-      "news_count": 18,
+      "news_count": 19,
       "earnings_days": null,
       "score": 4.06,
       "reasons": [
@@ -128,17 +120,17 @@
         "news_spike"
       ],
       "news_headlines": [
+        "Eli Lilly Just Announced Fantastic News for Shareholders",
         "Why Eli Lilly Stock Jumped This Week",
         "$9 Trillion Is Pouring Into American Manufacturing \u2014 And It\u2019s Just Getting Started",
         "Eli Lilly and Company 2026 Q1 - Results - Earnings Call Presentation",
-        "Is Novo Nordisk A/S (NVO) A Good Stock To Buy Now?",
-        "Jim Cramer Praises Eli Lilly\u2019s Performance"
+        "Is Novo Nordisk A/S (NVO) A Good Stock To Buy Now?"
       ],
-      "analyzed_at": "2026-05-04T06:43:51.786565+00:00"
+      "analyzed_at": "2026-05-04T10:36:22.814526+00:00"
     },
     {
       "symbol": "MCD",
-      "theme": "",
+      "theme": "Consumer & Retail",
       "drivers": [
         "Negative price change of 2.37% today",
         "Increased trading volume at 1.1x average",
@@ -173,61 +165,61 @@
       "symbol": "TSLA",
       "theme": "Electric Vehicles",
       "drivers": [
-        "23 news items in past 48h"
+        "26 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "neutral",
-      "summary": "TSLA shows neutral signals with +2.4% price change and 23 recent news items.",
+      "summary": "TSLA shows neutral signals with +2.4% price change and 26 recent news items.",
       "llm_used": false,
       "price": 390.82,
       "change_pct": 2.4081,
       "volume_ratio": 1.04,
-      "news_count": 23,
+      "news_count": 26,
       "earnings_days": null,
       "score": 3.83,
       "reasons": [
         "news_spike"
       ],
       "news_headlines": [
+        "Meet 3 Upcoming Monster Artificial Intelligence (AI) IPOs That Will Soon Join Meta, Tesla, and Broadcom in the $1 Trillion Club",
+        "Microsoft Is a Mess. Is the \"Magnificent Seven\" Stock a Buy in May or Better Avoided?",
+        "Tesla registrations in Sweden rise 111% year-on-year in April",
         "Tesla registrations in Norway fall 61% year-on-year in April",
-        "SpaceX will pay Elon Musk a bonus if he gets at least 1 million people to live on Mars \u2014 here's the plan",
-        "China robot-hand-building unicorn Linkerbot targets $6 billion valuation",
-        "Is Tesla, Inc. (TSLA) A Good Stock To Buy Now?",
-        "Bill Gates Once Called Tesla's Semi Truck Impractical, But Gavin Newsom May Need Elon Musk's All-Electric Hauler To Bolster Clean Energy Bid"
+        "SpaceX will pay Elon Musk a bonus if he gets at least 1 million people to live on Mars \u2014 here's the plan"
       ],
-      "analyzed_at": "2026-05-04T06:43:53.774971+00:00"
+      "analyzed_at": "2026-05-04T10:36:24.439269+00:00"
     },
     {
       "symbol": "MSFT",
-      "theme": "Cloud & SaaS",
+      "theme": "AI & Machine Learning",
       "drivers": [
-        "49 news items in past 48h"
+        "56 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "neutral",
-      "summary": "MSFT shows neutral signals with +1.6% price change and 49 recent news items.",
+      "summary": "MSFT shows neutral signals with +1.6% price change and 56 recent news items.",
       "llm_used": false,
       "price": 414.44,
       "change_pct": 1.6332,
       "volume_ratio": 0.86,
-      "news_count": 49,
+      "news_count": 56,
       "earnings_days": null,
       "score": 3.61,
       "reasons": [
         "news_spike"
       ],
       "news_headlines": [
-        "Musk vs OpenAI trial enters second week",
-        "Seoul, Taipei hit records as Asian stocks track Wall St tech rally",
-        "3 Surprising Quantum Computing Stocks Robinhood Investors Love",
-        "A Look At Gen Digital (GEN) Valuation As AI Security Launches Follow Strong Q3 FY2026 Results And Growth Guidance",
-        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto"
+        "3 Beaten-Down Tech Stocks That Could Soar 33% or More, According to Wall Street",
+        "Microsoft Is a Mess. Is the \"Magnificent Seven\" Stock a Buy in May or Better Avoided?",
+        "This Major Tech Stock Could Be the Biggest Loser From AI",
+        "Zacks Investment Ideas feature highlights: Alphabet, Amazon and Microsoft",
+        "Alphabet, Meta, Microsoft and Nvidia are part of Zacks Earnings Preview"
       ],
-      "analyzed_at": "2026-05-04T06:43:55.467016+00:00"
+      "analyzed_at": "2026-05-04T10:36:26.095639+00:00"
     },
     {
       "symbol": "META",
@@ -326,31 +318,31 @@
       "symbol": "XOM",
       "theme": "Energy & Oil",
       "drivers": [
-        "19 news items in past 48h"
+        "20 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "neutral",
-      "summary": "XOM shows neutral signals with -1.0% price change and 19 recent news items.",
+      "summary": "XOM shows neutral signals with -1.0% price change and 20 recent news items.",
       "llm_used": false,
       "price": 152.75,
       "change_pct": -1.0238,
       "volume_ratio": 0.69,
-      "news_count": 19,
+      "news_count": 20,
       "earnings_days": null,
       "score": 3.43,
       "reasons": [
         "news_spike"
       ],
       "news_headlines": [
+        "Spirit Airlines Goes Dark: When Geopolitics Lands on the Runway",
         "XOM Q1 Deep Dive: Operational Flexibility and Portfolio Diversity Amid Global Energy Disruptions",
         "Exxon Mobil Weighs Venezuela Return As Valuation Signals Potential Upside",
         "3 Things to Keep in Mind If You Want to Build a Sustainable Investment Portfolio",
-        "US Is Oil Supplier of Last Resort as Hormuz Disruptions Worsen",
-        "ExxonMobil vs. Chevron: One of These Energy Stocks Is a Much Better Dividend Buy"
+        "US Is Oil Supplier of Last Resort as Hormuz Disruptions Worsen"
       ],
-      "analyzed_at": "2026-05-04T06:44:00.592062+00:00"
+      "analyzed_at": "2026-05-04T10:36:27.756377+00:00"
     }
   ],
   "all_stocks": [
@@ -423,18 +415,18 @@
       "theme": "Biotech & Pharma",
       "drivers": [
         "Significant price movement of +3.1%",
-        "18 news items in past 48h"
+        "19 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "bullish",
-      "summary": "LLY shows bullish signals with +3.1% price change and 18 recent news items.",
+      "summary": "LLY shows bullish signals with +3.1% price change and 19 recent news items.",
       "llm_used": false,
       "price": 963.33,
       "change_pct": 3.074,
       "volume_ratio": 1.33,
-      "news_count": 18,
+      "news_count": 19,
       "earnings_days": null,
       "score": 4.06,
       "reasons": [
@@ -442,17 +434,17 @@
         "news_spike"
       ],
       "news_headlines": [
+        "Eli Lilly Just Announced Fantastic News for Shareholders",
         "Why Eli Lilly Stock Jumped This Week",
         "$9 Trillion Is Pouring Into American Manufacturing \u2014 And It\u2019s Just Getting Started",
         "Eli Lilly and Company 2026 Q1 - Results - Earnings Call Presentation",
-        "Is Novo Nordisk A/S (NVO) A Good Stock To Buy Now?",
-        "Jim Cramer Praises Eli Lilly\u2019s Performance"
+        "Is Novo Nordisk A/S (NVO) A Good Stock To Buy Now?"
       ],
-      "analyzed_at": "2026-05-04T06:43:51.786565+00:00"
+      "analyzed_at": "2026-05-04T10:36:22.814526+00:00"
     },
     {
       "symbol": "MCD",
-      "theme": "",
+      "theme": "Consumer & Retail",
       "drivers": [
         "Negative price change of 2.37% today",
         "Increased trading volume at 1.1x average",
@@ -487,61 +479,61 @@
       "symbol": "TSLA",
       "theme": "Electric Vehicles",
       "drivers": [
-        "23 news items in past 48h"
+        "26 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "neutral",
-      "summary": "TSLA shows neutral signals with +2.4% price change and 23 recent news items.",
+      "summary": "TSLA shows neutral signals with +2.4% price change and 26 recent news items.",
       "llm_used": false,
       "price": 390.82,
       "change_pct": 2.4081,
       "volume_ratio": 1.04,
-      "news_count": 23,
+      "news_count": 26,
       "earnings_days": null,
       "score": 3.83,
       "reasons": [
         "news_spike"
       ],
       "news_headlines": [
+        "Meet 3 Upcoming Monster Artificial Intelligence (AI) IPOs That Will Soon Join Meta, Tesla, and Broadcom in the $1 Trillion Club",
+        "Microsoft Is a Mess. Is the \"Magnificent Seven\" Stock a Buy in May or Better Avoided?",
+        "Tesla registrations in Sweden rise 111% year-on-year in April",
         "Tesla registrations in Norway fall 61% year-on-year in April",
-        "SpaceX will pay Elon Musk a bonus if he gets at least 1 million people to live on Mars \u2014 here's the plan",
-        "China robot-hand-building unicorn Linkerbot targets $6 billion valuation",
-        "Is Tesla, Inc. (TSLA) A Good Stock To Buy Now?",
-        "Bill Gates Once Called Tesla's Semi Truck Impractical, But Gavin Newsom May Need Elon Musk's All-Electric Hauler To Bolster Clean Energy Bid"
+        "SpaceX will pay Elon Musk a bonus if he gets at least 1 million people to live on Mars \u2014 here's the plan"
       ],
-      "analyzed_at": "2026-05-04T06:43:53.774971+00:00"
+      "analyzed_at": "2026-05-04T10:36:24.439269+00:00"
     },
     {
       "symbol": "MSFT",
-      "theme": "Cloud & SaaS",
+      "theme": "AI & Machine Learning",
       "drivers": [
-        "49 news items in past 48h"
+        "56 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "neutral",
-      "summary": "MSFT shows neutral signals with +1.6% price change and 49 recent news items.",
+      "summary": "MSFT shows neutral signals with +1.6% price change and 56 recent news items.",
       "llm_used": false,
       "price": 414.44,
       "change_pct": 1.6332,
       "volume_ratio": 0.86,
-      "news_count": 49,
+      "news_count": 56,
       "earnings_days": null,
       "score": 3.61,
       "reasons": [
         "news_spike"
       ],
       "news_headlines": [
-        "Musk vs OpenAI trial enters second week",
-        "Seoul, Taipei hit records as Asian stocks track Wall St tech rally",
-        "3 Surprising Quantum Computing Stocks Robinhood Investors Love",
-        "A Look At Gen Digital (GEN) Valuation As AI Security Launches Follow Strong Q3 FY2026 Results And Growth Guidance",
-        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto"
+        "3 Beaten-Down Tech Stocks That Could Soar 33% or More, According to Wall Street",
+        "Microsoft Is a Mess. Is the \"Magnificent Seven\" Stock a Buy in May or Better Avoided?",
+        "This Major Tech Stock Could Be the Biggest Loser From AI",
+        "Zacks Investment Ideas feature highlights: Alphabet, Amazon and Microsoft",
+        "Alphabet, Meta, Microsoft and Nvidia are part of Zacks Earnings Preview"
       ],
-      "analyzed_at": "2026-05-04T06:43:55.467016+00:00"
+      "analyzed_at": "2026-05-04T10:36:26.095639+00:00"
     },
     {
       "symbol": "META",
@@ -640,31 +632,31 @@
       "symbol": "XOM",
       "theme": "Energy & Oil",
       "drivers": [
-        "19 news items in past 48h"
+        "20 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "neutral",
-      "summary": "XOM shows neutral signals with -1.0% price change and 19 recent news items.",
+      "summary": "XOM shows neutral signals with -1.0% price change and 20 recent news items.",
       "llm_used": false,
       "price": 152.75,
       "change_pct": -1.0238,
       "volume_ratio": 0.69,
-      "news_count": 19,
+      "news_count": 20,
       "earnings_days": null,
       "score": 3.43,
       "reasons": [
         "news_spike"
       ],
       "news_headlines": [
+        "Spirit Airlines Goes Dark: When Geopolitics Lands on the Runway",
         "XOM Q1 Deep Dive: Operational Flexibility and Portfolio Diversity Amid Global Energy Disruptions",
         "Exxon Mobil Weighs Venezuela Return As Valuation Signals Potential Upside",
         "3 Things to Keep in Mind If You Want to Build a Sustainable Investment Portfolio",
-        "US Is Oil Supplier of Last Resort as Hormuz Disruptions Worsen",
-        "ExxonMobil vs. Chevron: One of These Energy Stocks Is a Much Better Dividend Buy"
+        "US Is Oil Supplier of Last Resort as Hormuz Disruptions Worsen"
       ],
-      "analyzed_at": "2026-05-04T06:44:00.592062+00:00"
+      "analyzed_at": "2026-05-04T10:36:27.756377+00:00"
     },
     {
       "symbol": "V",
@@ -698,6 +690,36 @@
         "Is\u00a0Visa Inc. (V)\u00a0A Good Stock\u00a0To\u00a0Buy Now?"
       ],
       "analyzed_at": "2026-05-04T06:50:48.714659+00:00"
+    },
+    {
+      "symbol": "SPGI",
+      "theme": "",
+      "drivers": [
+        "13 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "SPGI shows neutral signals with -1.2% price change and 13 recent news items.",
+      "llm_used": false,
+      "price": 426.06,
+      "change_pct": -1.1989,
+      "volume_ratio": 0.4,
+      "news_count": 13,
+      "earnings_days": null,
+      "score": 3.37,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "CEE ECONOMY-Central Europe manufacturing surveys ring 'alarm bells' over surging costs",
+        "Euro area factories snapped up raw materials in April as optimism slumped amid Middle East war - PMI",
+        "Greek manufacturing growth hits seven-month low in April, PMI shows",
+        "German factory outlook turns negative for first time since 2024, PMI shows",
+        "French manufacturing output and orders rise in April on inflation fears, PMI shows"
+      ],
+      "analyzed_at": "2026-05-04T10:36:29.426094+00:00"
     },
     {
       "symbol": "NVDA",
@@ -862,31 +884,31 @@
       "symbol": "JPM",
       "theme": "Financials & Banking",
       "drivers": [
-        "20 news items in past 48h"
+        "22 news items in past 48h"
       ],
       "risks": [
         "Limited data available for detailed analysis"
       ],
       "sentiment": "neutral",
-      "summary": "JPM shows neutral signals with -0.2% price change and 20 recent news items.",
+      "summary": "JPM shows neutral signals with -0.2% price change and 22 recent news items.",
       "llm_used": false,
       "price": 312.47,
       "change_pct": -0.2426,
       "volume_ratio": 0.62,
-      "news_count": 20,
+      "news_count": 22,
       "earnings_days": null,
       "score": 3.26,
       "reasons": [
         "news_spike"
       ],
       "news_headlines": [
+        "Market Chatter: JPMorgan Chase, Other Major Banks Seek to Offload Risks Tied to Data Centers Amid AI Strain",
+        "How The SPIE (ENXTPA:SPIE) Investment Story Is Evolving With Fresh Targets And New Guidance",
         "Major Shareholding Disclosure",
         "Treasury Market on Watch for Shift in Yellen-Era Debt Playbook",
-        "AI Is Driving the Market: J.P. Morgan Picks 2 Stocks With Direct Exposure",
-        "Why ResMed (RMD) Narrative Is Shifting As Analysts Reassess Growth And Valuation Assumptions",
-        "JPMorgan resets Amazon stock price target after earnings"
+        "AI Is Driving the Market: J.P. Morgan Picks 2 Stocks With Direct Exposure"
       ],
-      "analyzed_at": "2026-05-04T06:44:05.952657+00:00"
+      "analyzed_at": "2026-05-04T10:36:31.018096+00:00"
     },
     {
       "symbol": "GS",
@@ -949,7 +971,7 @@
         "Top 50 High-Quality Dividend Growth Stocks For May 2026",
         "Analyst Estimates: Here's What Brokers Think Of Mastercard Incorporated (NYSE:MA) After Its First-Quarter Report"
       ],
-      "analyzed_at": "2026-05-04T06:44:07.611242+00:00"
+      "analyzed_at": "2026-05-04T10:36:32.578694+00:00"
     },
     {
       "symbol": "CAT",
