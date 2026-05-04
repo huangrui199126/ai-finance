@@ -1,0 +1,1511 @@
+{
+  "date": "2026-05-04",
+  "generated_at": "2026-05-04T06:51:06.178736+00:00",
+  "market_mood": "cautiously bullish",
+  "sentiment_breakdown": {
+    "bullish": 5,
+    "bearish": 3,
+    "neutral": 30
+  },
+  "total_scanned": 49,
+  "total_analyzed": 38,
+  "llm_analyzed": 8,
+  "top_themes": [
+    {
+      "name": "Semiconductors",
+      "strength": "medium",
+      "symbols": [
+        "NVDA",
+        "AVGO"
+      ]
+    },
+    {
+      "name": "AI & Machine Learning",
+      "strength": "low",
+      "symbols": [
+        "NVDA",
+        "MSFT",
+        "AVGO"
+      ]
+    },
+    {
+      "name": "Biotech & Pharma",
+      "strength": "low",
+      "symbols": [
+        "LLY",
+        "MRK",
+        "ABBV",
+        "AMGN"
+      ]
+    }
+  ],
+  "top_stocks": [
+    {
+      "symbol": "AAPL",
+      "theme": "",
+      "drivers": [
+        "Significant price movement of +3.2%",
+        "45 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "bullish",
+      "summary": "AAPL shows bullish signals with +3.2% price change and 45 recent news items.",
+      "llm_used": false,
+      "price": 280.14,
+      "change_pct": 3.2394,
+      "volume_ratio": 1.75,
+      "news_count": 45,
+      "earnings_days": null,
+      "score": 4.23,
+      "reasons": [
+        "price_move",
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Dow Jones Futures: Trump Says U.S. To 'Guide' Ships Through Hormuz",
+        "Seoul, Taipei hit records as Asian stocks track Wall St tech rally",
+        "Dow Jones Futures Rise; Trump Says U.S. To 'Guide' Ships Through Hormuz",
+        "Apple anticipates price increases",
+        "Apple: Wait For A Drop"
+      ],
+      "analyzed_at": "2026-05-04T06:43:48.528804+00:00"
+    },
+    {
+      "symbol": "CRM",
+      "theme": "Cloud & SaaS",
+      "drivers": [
+        "Significant price movement of +4.1%",
+        "22 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "bullish",
+      "summary": "CRM shows bullish signals with +4.1% price change and 22 recent news items.",
+      "llm_used": false,
+      "price": 183.82,
+      "change_pct": 4.1296,
+      "volume_ratio": 0.87,
+      "news_count": 22,
+      "earnings_days": null,
+      "score": 4.12,
+      "reasons": [
+        "price_move",
+        "news_spike"
+      ],
+      "news_headlines": [
+        "MongoDB, PubMatic, and Sprinklr Shares Skyrocket, What You Need To Know",
+        "Asana, RingCentral, and Bandwidth Stocks Trade Up, What You Need To Know",
+        "Elastic, BlackLine, and Fastly Stocks Trade Up, What You Need To Know",
+        "GitLab, PagerDuty, and Domo Shares Are Soaring, What You Need To Know",
+        "8x8, Veeva Systems, and Health Catalyst Shares Are Soaring, What You Need To Know"
+      ],
+      "analyzed_at": "2026-05-04T06:43:50.140783+00:00"
+    },
+    {
+      "symbol": "LLY",
+      "theme": "Biotech & Pharma",
+      "drivers": [
+        "Significant price movement of +3.1%",
+        "18 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "bullish",
+      "summary": "LLY shows bullish signals with +3.1% price change and 18 recent news items.",
+      "llm_used": false,
+      "price": 963.33,
+      "change_pct": 3.074,
+      "volume_ratio": 1.33,
+      "news_count": 18,
+      "earnings_days": null,
+      "score": 4.06,
+      "reasons": [
+        "price_move",
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Why Eli Lilly Stock Jumped This Week",
+        "$9 Trillion Is Pouring Into American Manufacturing \u2014 And It\u2019s Just Getting Started",
+        "Eli Lilly and Company 2026 Q1 - Results - Earnings Call Presentation",
+        "Is Novo Nordisk A/S (NVO) A Good Stock To Buy Now?",
+        "Jim Cramer Praises Eli Lilly\u2019s Performance"
+      ],
+      "analyzed_at": "2026-05-04T06:43:51.786565+00:00"
+    },
+    {
+      "symbol": "MCD",
+      "theme": "",
+      "drivers": [
+        "Negative price change of 2.37% today",
+        "Increased trading volume at 1.1x average",
+        "Recent news about the elimination of a popular customer perk"
+      ],
+      "risks": [
+        "Potential impact of customer perk elimination on sales",
+        "Market reaction to broader economic indicators from jobs report"
+      ],
+      "sentiment": "bearish",
+      "summary": "McDonald's shares are down 2.37% amid concerns over customer perks and broader market trends.",
+      "llm_used": true,
+      "price": 286.64,
+      "change_pct": -2.3672,
+      "volume_ratio": 1.12,
+      "news_count": 11,
+      "earnings_days": null,
+      "score": 3.85,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Is McDonald\u2019s Corporation (MCD) A Good Stock To Buy Now?",
+        "Jobs Report, Palantir, Pinterest, AMD, PayPal, Disney, and More to Watch This Week",
+        "McDonald\u2019s is eliminating a popular customer perk nationwide",
+        "Dollar General sees shift in how customers are spending",
+        "Wall Street Week Ahead"
+      ],
+      "analyzed_at": "2026-05-04T06:50:42.196987+00:00"
+    },
+    {
+      "symbol": "TSLA",
+      "theme": "Electric Vehicles",
+      "drivers": [
+        "23 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "TSLA shows neutral signals with +2.4% price change and 23 recent news items.",
+      "llm_used": false,
+      "price": 390.82,
+      "change_pct": 2.4081,
+      "volume_ratio": 1.04,
+      "news_count": 23,
+      "earnings_days": null,
+      "score": 3.83,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Tesla registrations in Norway fall 61% year-on-year in April",
+        "SpaceX will pay Elon Musk a bonus if he gets at least 1 million people to live on Mars \u2014 here's the plan",
+        "China robot-hand-building unicorn Linkerbot targets $6 billion valuation",
+        "Is Tesla, Inc. (TSLA) A Good Stock To Buy Now?",
+        "Bill Gates Once Called Tesla's Semi Truck Impractical, But Gavin Newsom May Need Elon Musk's All-Electric Hauler To Bolster Clean Energy Bid"
+      ],
+      "analyzed_at": "2026-05-04T06:43:53.774971+00:00"
+    },
+    {
+      "symbol": "MSFT",
+      "theme": "Cloud & SaaS",
+      "drivers": [
+        "49 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "MSFT shows neutral signals with +1.6% price change and 49 recent news items.",
+      "llm_used": false,
+      "price": 414.44,
+      "change_pct": 1.6332,
+      "volume_ratio": 0.86,
+      "news_count": 49,
+      "earnings_days": null,
+      "score": 3.61,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Musk vs OpenAI trial enters second week",
+        "Seoul, Taipei hit records as Asian stocks track Wall St tech rally",
+        "3 Surprising Quantum Computing Stocks Robinhood Investors Love",
+        "A Look At Gen Digital (GEN) Valuation As AI Security Launches Follow Strong Q3 FY2026 Results And Growth Guidance",
+        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto"
+      ],
+      "analyzed_at": "2026-05-04T06:43:55.467016+00:00"
+    },
+    {
+      "symbol": "META",
+      "theme": "",
+      "drivers": [
+        "Negative commentary from Jim Cramer impacting sentiment",
+        "Increased trading volume indicating heightened interest",
+        "Broader market trends affecting tech stocks"
+      ],
+      "risks": [
+        "Potential for further negative sentiment from analysts",
+        "Market volatility due to external economic factors"
+      ],
+      "sentiment": "bearish",
+      "summary": "Meta Platforms, Inc. is experiencing a slight decline in price amid negative analyst commentary and increased trading volume.",
+      "llm_used": true,
+      "price": 608.75,
+      "change_pct": -0.5164,
+      "volume_ratio": 1.39,
+      "news_count": 44,
+      "earnings_days": null,
+      "score": 3.57,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto",
+        "Jim Cramer on Meta: \u201cIt\u2019s Being Clubbed Like a Baby Seal\u201d",
+        "Jim Cramer Says Stocks Like Seagate  \u201cAre Really Overextended\u201d For Him",
+        "Her Dying Wish Was To Give Their Kids A Part Of Home Equity. Now, He's Getting Married Again, And Wants To Take Back $400K From His Kids",
+        "Traders Grapple With Two-Sided Tail Risk as Stocks Regain Highs"
+      ],
+      "analyzed_at": "2026-05-04T06:50:44.842204+00:00"
+    },
+    {
+      "symbol": "AMZN",
+      "theme": "",
+      "drivers": [
+        "59 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "AMZN shows neutral signals with +1.2% price change and 59 recent news items.",
+      "llm_used": false,
+      "price": 268.26,
+      "change_pct": 1.2073,
+      "volume_ratio": 0.95,
+      "news_count": 59,
+      "earnings_days": null,
+      "score": 3.56,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "GameStop offers to buy eBay for about $56 billion",
+        "GameStop makes $56 billion takeover bid for eBay",
+        "This Under\u2011the\u2011Radar Grid Infrastructure Powerhouse Could Be a Generational Wealth Builder for Patient Investors",
+        "Berkshire: Conglomerate Structure Makes Future Capital Appreciation Problematic",
+        "Amazon Just Made a Big Move. These 2 S&P 500 Stocks Are Next to Watch."
+      ],
+      "analyzed_at": "2026-05-04T06:43:57.126314+00:00"
+    },
+    {
+      "symbol": "CVX",
+      "theme": "",
+      "drivers": [
+        "22 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "CVX shows neutral signals with -1.4% price change and 22 recent news items.",
+      "llm_used": false,
+      "price": 190.63,
+      "change_pct": -1.3864,
+      "volume_ratio": 0.84,
+      "news_count": 22,
+      "earnings_days": null,
+      "score": 3.56,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "CVX Q1 Deep Dive: Margin Compression Amid Stable Revenue and Upstream Growth",
+        "Chevron Corporation 2026 Q1 - Results - Earnings Call Presentation",
+        "The Bull Case For Chevron (CVX) Could Change Following Q1 2026 Earnings Beat And Steady Dividend Commitment",
+        "US Is Oil Supplier of Last Resort as Hormuz Disruptions Worsen",
+        "5 things we learned during S&P 500 earnings madness"
+      ],
+      "analyzed_at": "2026-05-04T06:43:58.801963+00:00"
+    },
+    {
+      "symbol": "XOM",
+      "theme": "Energy & Oil",
+      "drivers": [
+        "19 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "XOM shows neutral signals with -1.0% price change and 19 recent news items.",
+      "llm_used": false,
+      "price": 152.75,
+      "change_pct": -1.0238,
+      "volume_ratio": 0.69,
+      "news_count": 19,
+      "earnings_days": null,
+      "score": 3.43,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "XOM Q1 Deep Dive: Operational Flexibility and Portfolio Diversity Amid Global Energy Disruptions",
+        "Exxon Mobil Weighs Venezuela Return As Valuation Signals Potential Upside",
+        "3 Things to Keep in Mind If You Want to Build a Sustainable Investment Portfolio",
+        "US Is Oil Supplier of Last Resort as Hormuz Disruptions Worsen",
+        "ExxonMobil vs. Chevron: One of These Energy Stocks Is a Much Better Dividend Buy"
+      ],
+      "analyzed_at": "2026-05-04T06:44:00.592062+00:00"
+    }
+  ],
+  "all_stocks": [
+    {
+      "symbol": "AAPL",
+      "theme": "",
+      "drivers": [
+        "Significant price movement of +3.2%",
+        "45 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "bullish",
+      "summary": "AAPL shows bullish signals with +3.2% price change and 45 recent news items.",
+      "llm_used": false,
+      "price": 280.14,
+      "change_pct": 3.2394,
+      "volume_ratio": 1.75,
+      "news_count": 45,
+      "earnings_days": null,
+      "score": 4.23,
+      "reasons": [
+        "price_move",
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Dow Jones Futures: Trump Says U.S. To 'Guide' Ships Through Hormuz",
+        "Seoul, Taipei hit records as Asian stocks track Wall St tech rally",
+        "Dow Jones Futures Rise; Trump Says U.S. To 'Guide' Ships Through Hormuz",
+        "Apple anticipates price increases",
+        "Apple: Wait For A Drop"
+      ],
+      "analyzed_at": "2026-05-04T06:43:48.528804+00:00"
+    },
+    {
+      "symbol": "CRM",
+      "theme": "Cloud & SaaS",
+      "drivers": [
+        "Significant price movement of +4.1%",
+        "22 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "bullish",
+      "summary": "CRM shows bullish signals with +4.1% price change and 22 recent news items.",
+      "llm_used": false,
+      "price": 183.82,
+      "change_pct": 4.1296,
+      "volume_ratio": 0.87,
+      "news_count": 22,
+      "earnings_days": null,
+      "score": 4.12,
+      "reasons": [
+        "price_move",
+        "news_spike"
+      ],
+      "news_headlines": [
+        "MongoDB, PubMatic, and Sprinklr Shares Skyrocket, What You Need To Know",
+        "Asana, RingCentral, and Bandwidth Stocks Trade Up, What You Need To Know",
+        "Elastic, BlackLine, and Fastly Stocks Trade Up, What You Need To Know",
+        "GitLab, PagerDuty, and Domo Shares Are Soaring, What You Need To Know",
+        "8x8, Veeva Systems, and Health Catalyst Shares Are Soaring, What You Need To Know"
+      ],
+      "analyzed_at": "2026-05-04T06:43:50.140783+00:00"
+    },
+    {
+      "symbol": "LLY",
+      "theme": "Biotech & Pharma",
+      "drivers": [
+        "Significant price movement of +3.1%",
+        "18 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "bullish",
+      "summary": "LLY shows bullish signals with +3.1% price change and 18 recent news items.",
+      "llm_used": false,
+      "price": 963.33,
+      "change_pct": 3.074,
+      "volume_ratio": 1.33,
+      "news_count": 18,
+      "earnings_days": null,
+      "score": 4.06,
+      "reasons": [
+        "price_move",
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Why Eli Lilly Stock Jumped This Week",
+        "$9 Trillion Is Pouring Into American Manufacturing \u2014 And It\u2019s Just Getting Started",
+        "Eli Lilly and Company 2026 Q1 - Results - Earnings Call Presentation",
+        "Is Novo Nordisk A/S (NVO) A Good Stock To Buy Now?",
+        "Jim Cramer Praises Eli Lilly\u2019s Performance"
+      ],
+      "analyzed_at": "2026-05-04T06:43:51.786565+00:00"
+    },
+    {
+      "symbol": "MCD",
+      "theme": "",
+      "drivers": [
+        "Negative price change of 2.37% today",
+        "Increased trading volume at 1.1x average",
+        "Recent news about the elimination of a popular customer perk"
+      ],
+      "risks": [
+        "Potential impact of customer perk elimination on sales",
+        "Market reaction to broader economic indicators from jobs report"
+      ],
+      "sentiment": "bearish",
+      "summary": "McDonald's shares are down 2.37% amid concerns over customer perks and broader market trends.",
+      "llm_used": true,
+      "price": 286.64,
+      "change_pct": -2.3672,
+      "volume_ratio": 1.12,
+      "news_count": 11,
+      "earnings_days": null,
+      "score": 3.85,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Is McDonald\u2019s Corporation (MCD) A Good Stock To Buy Now?",
+        "Jobs Report, Palantir, Pinterest, AMD, PayPal, Disney, and More to Watch This Week",
+        "McDonald\u2019s is eliminating a popular customer perk nationwide",
+        "Dollar General sees shift in how customers are spending",
+        "Wall Street Week Ahead"
+      ],
+      "analyzed_at": "2026-05-04T06:50:42.196987+00:00"
+    },
+    {
+      "symbol": "TSLA",
+      "theme": "Electric Vehicles",
+      "drivers": [
+        "23 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "TSLA shows neutral signals with +2.4% price change and 23 recent news items.",
+      "llm_used": false,
+      "price": 390.82,
+      "change_pct": 2.4081,
+      "volume_ratio": 1.04,
+      "news_count": 23,
+      "earnings_days": null,
+      "score": 3.83,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Tesla registrations in Norway fall 61% year-on-year in April",
+        "SpaceX will pay Elon Musk a bonus if he gets at least 1 million people to live on Mars \u2014 here's the plan",
+        "China robot-hand-building unicorn Linkerbot targets $6 billion valuation",
+        "Is Tesla, Inc. (TSLA) A Good Stock To Buy Now?",
+        "Bill Gates Once Called Tesla's Semi Truck Impractical, But Gavin Newsom May Need Elon Musk's All-Electric Hauler To Bolster Clean Energy Bid"
+      ],
+      "analyzed_at": "2026-05-04T06:43:53.774971+00:00"
+    },
+    {
+      "symbol": "MSFT",
+      "theme": "Cloud & SaaS",
+      "drivers": [
+        "49 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "MSFT shows neutral signals with +1.6% price change and 49 recent news items.",
+      "llm_used": false,
+      "price": 414.44,
+      "change_pct": 1.6332,
+      "volume_ratio": 0.86,
+      "news_count": 49,
+      "earnings_days": null,
+      "score": 3.61,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Musk vs OpenAI trial enters second week",
+        "Seoul, Taipei hit records as Asian stocks track Wall St tech rally",
+        "3 Surprising Quantum Computing Stocks Robinhood Investors Love",
+        "A Look At Gen Digital (GEN) Valuation As AI Security Launches Follow Strong Q3 FY2026 Results And Growth Guidance",
+        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto"
+      ],
+      "analyzed_at": "2026-05-04T06:43:55.467016+00:00"
+    },
+    {
+      "symbol": "META",
+      "theme": "",
+      "drivers": [
+        "Negative commentary from Jim Cramer impacting sentiment",
+        "Increased trading volume indicating heightened interest",
+        "Broader market trends affecting tech stocks"
+      ],
+      "risks": [
+        "Potential for further negative sentiment from analysts",
+        "Market volatility due to external economic factors"
+      ],
+      "sentiment": "bearish",
+      "summary": "Meta Platforms, Inc. is experiencing a slight decline in price amid negative analyst commentary and increased trading volume.",
+      "llm_used": true,
+      "price": 608.75,
+      "change_pct": -0.5164,
+      "volume_ratio": 1.39,
+      "news_count": 44,
+      "earnings_days": null,
+      "score": 3.57,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto",
+        "Jim Cramer on Meta: \u201cIt\u2019s Being Clubbed Like a Baby Seal\u201d",
+        "Jim Cramer Says Stocks Like Seagate  \u201cAre Really Overextended\u201d For Him",
+        "Her Dying Wish Was To Give Their Kids A Part Of Home Equity. Now, He's Getting Married Again, And Wants To Take Back $400K From His Kids",
+        "Traders Grapple With Two-Sided Tail Risk as Stocks Regain Highs"
+      ],
+      "analyzed_at": "2026-05-04T06:50:44.842204+00:00"
+    },
+    {
+      "symbol": "AMZN",
+      "theme": "",
+      "drivers": [
+        "59 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "AMZN shows neutral signals with +1.2% price change and 59 recent news items.",
+      "llm_used": false,
+      "price": 268.26,
+      "change_pct": 1.2073,
+      "volume_ratio": 0.95,
+      "news_count": 59,
+      "earnings_days": null,
+      "score": 3.56,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "GameStop offers to buy eBay for about $56 billion",
+        "GameStop makes $56 billion takeover bid for eBay",
+        "This Under\u2011the\u2011Radar Grid Infrastructure Powerhouse Could Be a Generational Wealth Builder for Patient Investors",
+        "Berkshire: Conglomerate Structure Makes Future Capital Appreciation Problematic",
+        "Amazon Just Made a Big Move. These 2 S&P 500 Stocks Are Next to Watch."
+      ],
+      "analyzed_at": "2026-05-04T06:43:57.126314+00:00"
+    },
+    {
+      "symbol": "CVX",
+      "theme": "",
+      "drivers": [
+        "22 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "CVX shows neutral signals with -1.4% price change and 22 recent news items.",
+      "llm_used": false,
+      "price": 190.63,
+      "change_pct": -1.3864,
+      "volume_ratio": 0.84,
+      "news_count": 22,
+      "earnings_days": null,
+      "score": 3.56,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "CVX Q1 Deep Dive: Margin Compression Amid Stable Revenue and Upstream Growth",
+        "Chevron Corporation 2026 Q1 - Results - Earnings Call Presentation",
+        "The Bull Case For Chevron (CVX) Could Change Following Q1 2026 Earnings Beat And Steady Dividend Commitment",
+        "US Is Oil Supplier of Last Resort as Hormuz Disruptions Worsen",
+        "5 things we learned during S&P 500 earnings madness"
+      ],
+      "analyzed_at": "2026-05-04T06:43:58.801963+00:00"
+    },
+    {
+      "symbol": "XOM",
+      "theme": "Energy & Oil",
+      "drivers": [
+        "19 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "XOM shows neutral signals with -1.0% price change and 19 recent news items.",
+      "llm_used": false,
+      "price": 152.75,
+      "change_pct": -1.0238,
+      "volume_ratio": 0.69,
+      "news_count": 19,
+      "earnings_days": null,
+      "score": 3.43,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "XOM Q1 Deep Dive: Operational Flexibility and Portfolio Diversity Amid Global Energy Disruptions",
+        "Exxon Mobil Weighs Venezuela Return As Valuation Signals Potential Upside",
+        "3 Things to Keep in Mind If You Want to Build a Sustainable Investment Portfolio",
+        "US Is Oil Supplier of Last Resort as Hormuz Disruptions Worsen",
+        "ExxonMobil vs. Chevron: One of These Energy Stocks Is a Much Better Dividend Buy"
+      ],
+      "analyzed_at": "2026-05-04T06:44:00.592062+00:00"
+    },
+    {
+      "symbol": "V",
+      "theme": "",
+      "drivers": [
+        "Recent news regarding PayPal's performance may be influencing investor sentiment towards payment processing stocks like Visa.",
+        "Volume ratio at 0.9x suggests lower trading activity compared to average, indicating cautious investor behavior.",
+        "The news spike signal may indicate increased interest or speculation around Visa's stock."
+      ],
+      "risks": [
+        "Lack of earnings data may lead to uncertainty regarding Visa's financial performance.",
+        "Market reactions to broader economic news could impact Visa's stock price."
+      ],
+      "sentiment": "neutral",
+      "summary": "Visa Inc. is experiencing slight price decline amid cautious trading and mixed market sentiment influenced by recent news.",
+      "llm_used": true,
+      "price": 328.03,
+      "change_pct": -0.5488,
+      "volume_ratio": 0.89,
+      "news_count": 10,
+      "earnings_days": null,
+      "score": 3.41,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Berkshire\u2019s Greg Abel Marks His First Annual Meeting as CEO. We\u2019d Give Him a B-Plus.",
+        "Anchor Loads Up Invesco BulletShares 2029 Corporate Bond ETF With 1.1 Million Shares Bought",
+        "PayPal's Epic Fall In Numbers",
+        "Top 50 High-Quality Dividend Growth Stocks For May 2026",
+        "Is\u00a0Visa Inc. (V)\u00a0A Good Stock\u00a0To\u00a0Buy Now?"
+      ],
+      "analyzed_at": "2026-05-04T06:50:48.714659+00:00"
+    },
+    {
+      "symbol": "NVDA",
+      "theme": "Semiconductors",
+      "drivers": [
+        "Overall market reaction to recent Federal Reserve actions",
+        "Increased focus on AI chip development as indicated by MediaTek's executive hire",
+        "Volume ratio at 0.7x suggests lower trading activity today"
+      ],
+      "risks": [
+        "Potential impact of macroeconomic factors on semiconductor demand",
+        "Uncertainty surrounding competitive positioning against other semiconductor firms like TSMC"
+      ],
+      "sentiment": "neutral",
+      "summary": "NVIDIA's stock is experiencing slight decline amid mixed market signals and low trading volume.",
+      "llm_used": true,
+      "price": 198.45,
+      "change_pct": -0.5612,
+      "volume_ratio": 0.73,
+      "news_count": 173,
+      "earnings_days": null,
+      "score": 3.36,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "The Fed Just Did Something It Hasn't Done Since 1992. Here's What It Means.",
+        "Don't Buy Hyperliquid If This Happens",
+        "Bull vs. Bear: Is Taiwan Semiconductor Manufacturing Stock a Buy or Sell?",
+        "MediaTek hires former TSMC executive to boost AI chip packaging",
+        "Why General Dynamics Stock Is Rising"
+      ],
+      "analyzed_at": "2026-05-04T06:50:52.288184+00:00"
+    },
+    {
+      "symbol": "GOOGL",
+      "theme": "",
+      "drivers": [
+        "62 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "GOOGL shows neutral signals with +0.2% price change and 62 recent news items.",
+      "llm_used": false,
+      "price": 385.69,
+      "change_pct": 0.2313,
+      "volume_ratio": 0.91,
+      "news_count": 62,
+      "earnings_days": null,
+      "score": 3.35,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Dow Jones Futures: Trump Says U.S. To 'Guide' Ships Through Hormuz",
+        "Seoul, Taipei hit records as Asian stocks track Wall St tech rally",
+        "3 Surprising Quantum Computing Stocks Robinhood Investors Love",
+        "Dow Jones Futures Rise; Trump Says U.S. To 'Guide' Ships Through Hormuz",
+        "Elon Musk's Space AI Vision Gets Boost As Sundar Pichai Backs Data Centers In Orbit"
+      ],
+      "analyzed_at": "2026-05-04T06:44:02.470835+00:00"
+    },
+    {
+      "symbol": "AVGO",
+      "theme": "Semiconductors",
+      "drivers": [
+        "Positive price movement today (+0.92%)",
+        "News related to U.S. geopolitical actions may influence market sentiment",
+        "Broadcom mentioned in context of being in buy zones alongside Apple"
+      ],
+      "risks": [
+        "Lack of earnings data could lead to uncertainty",
+        "Potential negative sentiment from competitive AI semiconductor predictions"
+      ],
+      "sentiment": "neutral",
+      "summary": "Broadcom's stock shows slight positive movement amid geopolitical news and mixed sentiment in the semiconductor sector.",
+      "llm_used": true,
+      "price": 421.28,
+      "change_pct": 0.9223,
+      "volume_ratio": 0.47,
+      "news_count": 14,
+      "earnings_days": null,
+      "score": 3.34,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Dow Jones Futures: Trump Says U.S. To 'Guide' Ships Through Hormuz",
+        "Dow Jones Futures Rise; Trump Says U.S. To 'Guide' Ships Through Hormuz",
+        "Dow Jones Futures Rise, Oil Falls As Trump Says U.S. To Guide Ships Through Hormuz; Apple, Broadcom In Buy Zones",
+        "Prediction: This Will Be the Top-Performing Artificial Intelligence (AI) Semiconductor Stock Over the Next Year. (Hint: It's Not Nvidia, Broadcom, or Micron.)",
+        "This Is My Favorite AI Chip Stock (By Far) -- and It's Not Nvidia, Intel, or Broadcom"
+      ],
+      "analyzed_at": "2026-05-04T06:50:55.636382+00:00"
+    },
+    {
+      "symbol": "MRK",
+      "theme": "Biotech & Pharma",
+      "drivers": [
+        "Strong buy sentiment following Terns acquisition",
+        "Positive outlook on pipeline developments",
+        "Recent approval for new HIV treatment boosting confidence"
+      ],
+      "risks": [
+        "Potential impact of Keytruda patent loss",
+        "Market reaction to upcoming pipeline milestones"
+      ],
+      "sentiment": "bullish",
+      "summary": "Merck's stock is experiencing upward momentum driven by positive news on acquisitions and pipeline developments.",
+      "llm_used": true,
+      "price": 112.16,
+      "change_pct": 2.7294,
+      "volume_ratio": 1.09,
+      "news_count": 8,
+      "earnings_days": null,
+      "score": 3.31,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Merck: 'Strong Buy' - Terns Acquisition And Ability To Counter Keytruda Patent Loss",
+        "Merck: All The Focus On The Pipeline",
+        "Does Merck\u2019s Upgraded 2026 Outlook And New HIV Approval Reshape The Bull Case For MRK?",
+        "MRK Q1 Deep Dive: Oncology Strength, New Launches, and Pipeline Milestones Define Quarter",
+        "One May Dog Of The Dow To Buy"
+      ],
+      "analyzed_at": "2026-05-04T06:50:58.974654+00:00"
+    },
+    {
+      "symbol": "KO",
+      "theme": "",
+      "drivers": [
+        "14 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "KO shows neutral signals with -0.2% price change and 14 recent news items.",
+      "llm_used": false,
+      "price": 78.58,
+      "change_pct": -0.2285,
+      "volume_ratio": 0.74,
+      "news_count": 14,
+      "earnings_days": null,
+      "score": 3.29,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Buy These 3 Dividend Stocks Today and Thank Yourself in 20 Years",
+        "Coca-Cola Annual Meeting: Shareholders Back Management, Reject Proposals as Braun Replaces Quincey",
+        "6 April Raises With 1 High Yield Giving 20% And 1 Cut",
+        "PepsiCo (PEP) Valuation Check After Earnings Rebound And Dividend Appeal Versus Coca Cola",
+        "Coca-Cola (KO) Valuation Check After Recent Share Price Moves And Conflicting Fair Value Estimates"
+      ],
+      "analyzed_at": "2026-05-04T06:44:04.264300+00:00"
+    },
+    {
+      "symbol": "JPM",
+      "theme": "Financials & Banking",
+      "drivers": [
+        "20 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "JPM shows neutral signals with -0.2% price change and 20 recent news items.",
+      "llm_used": false,
+      "price": 312.47,
+      "change_pct": -0.2426,
+      "volume_ratio": 0.62,
+      "news_count": 20,
+      "earnings_days": null,
+      "score": 3.26,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Major Shareholding Disclosure",
+        "Treasury Market on Watch for Shift in Yellen-Era Debt Playbook",
+        "AI Is Driving the Market: J.P. Morgan Picks 2 Stocks With Direct Exposure",
+        "Why ResMed (RMD) Narrative Is Shifting As Analysts Reassess Growth And Valuation Assumptions",
+        "JPMorgan resets Amazon stock price target after earnings"
+      ],
+      "analyzed_at": "2026-05-04T06:44:05.952657+00:00"
+    },
+    {
+      "symbol": "GS",
+      "theme": "Financials & Banking",
+      "drivers": [
+        "Recent news about AI joint ventures may indicate increased investment interest in financial technology",
+        "Current market conditions reflecting a cautious approach to spending amid AI hype",
+        "Volume ratio suggests lower trading activity, potentially indicating investor indecision"
+      ],
+      "risks": [
+        "Uncertainty surrounding the effectiveness of AI investments",
+        "Potential shifts in government debt management strategies affecting market stability"
+      ],
+      "sentiment": "neutral",
+      "summary": "Goldman Sachs' stock price remains stable amid mixed news on AI investments and cautious market sentiment.",
+      "llm_used": true,
+      "price": 923.71,
+      "change_pct": -0.0065,
+      "volume_ratio": 0.59,
+      "news_count": 13,
+      "earnings_days": null,
+      "score": 3.2,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Anthropic nears $1.5 billion AI joint venture with Wall Street firms, WSJ reports",
+        "AI boom faces reality check as returns lag behind massive spending",
+        "Treasury Market on Watch for Shift in Yellen-Era Debt Playbook",
+        "Best CD rates today, May 3, 2026 (lock in up to 4.05% APY)",
+        "How The Pitney Bowes (PBI) Investment Story Is Shifting Around Buybacks And Earnings Assumptions"
+      ],
+      "analyzed_at": "2026-05-04T06:51:02.867442+00:00"
+    },
+    {
+      "symbol": "MA",
+      "theme": "",
+      "drivers": [
+        "8 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "MA shows neutral signals with -1.5% price change and 8 recent news items.",
+      "llm_used": false,
+      "price": 495.46,
+      "change_pct": -1.4833,
+      "volume_ratio": 1.24,
+      "news_count": 8,
+      "earnings_days": null,
+      "score": 3.11,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Jim Cramer on Mastercard: \u201cVery Strong Quarter in the Face of a Very Tricky Economic Backdrop\u201d",
+        "Berkshire\u2019s Greg Abel Marks His First Annual Meeting as CEO. We\u2019d Give Him a B-Plus.",
+        "MA Q1 Deep Dive: Cross-Border Headwinds and Value-Added Services Drive Diverging Trends",
+        "Top 50 High-Quality Dividend Growth Stocks For May 2026",
+        "Analyst Estimates: Here's What Brokers Think Of Mastercard Incorporated (NYSE:MA) After Its First-Quarter Report"
+      ],
+      "analyzed_at": "2026-05-04T06:44:07.611242+00:00"
+    },
+    {
+      "symbol": "CAT",
+      "theme": "",
+      "drivers": [
+        "8 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "CAT shows neutral signals with -0.0% price change and 8 recent news items.",
+      "llm_used": false,
+      "price": 889.67,
+      "change_pct": -0.0494,
+      "volume_ratio": 0.85,
+      "news_count": 8,
+      "earnings_days": null,
+      "score": 2.69,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Jim Cramer on Caterpillar: \u201cIt\u2019s Got a Ton of Business From the Data Center Build-Out\u201d",
+        "BofA Highlights Energy Growth Driving Caterpillar (CAT) Upside",
+        "Terex Q1 Earnings Call Highlights",
+        "CAT Q1 Deep Dive: Data Center Demand and Capacity Expansion Drive Strong Results",
+        "ProPetro Q1 Earnings Call Highlights"
+      ],
+      "analyzed_at": "2026-05-04T06:44:10.114056+00:00"
+    },
+    {
+      "symbol": "COST",
+      "theme": "",
+      "drivers": [
+        "8 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "COST shows neutral signals with -0.1% price change and 8 recent news items.",
+      "llm_used": false,
+      "price": 1011.7,
+      "change_pct": -0.1343,
+      "volume_ratio": 0.79,
+      "news_count": 8,
+      "earnings_days": null,
+      "score": 2.69,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Amy\u2019s Kitchen Expansion Tests Costco Member Traffic And Prepared Meal Margins",
+        "Is PriceSmart, Inc. (PSMT) A Good Stock To Buy Now?",
+        "What Dividend Investors Need to Know About Costco",
+        "Mizuho Boosts Price Target for Costco (COST) Amid Strong Sales Momentum",
+        "Costco just dropped a trendy bakery item members already love"
+      ],
+      "analyzed_at": "2026-05-04T06:44:11.820591+00:00"
+    },
+    {
+      "symbol": "PG",
+      "theme": "",
+      "drivers": [
+        "8 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "PG shows neutral signals with +0.1% price change and 8 recent news items.",
+      "llm_used": false,
+      "price": 147.26,
+      "change_pct": 0.1156,
+      "volume_ratio": 0.65,
+      "news_count": 8,
+      "earnings_days": null,
+      "score": 2.64,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Rechecking Procter & Gamble (PG) Valuation After Mixed Recent Shareholder Returns",
+        "Is The Procter & Gamble Company (PG) A Good Stock To Buy Now?",
+        "3 Stocks to Buy and Hold Through Any Market Storm",
+        "2 S&P 500 Stocks with Promising Prospects and 1 We Avoid",
+        "One May Dog Of The Dow To Buy"
+      ],
+      "analyzed_at": "2026-05-04T06:44:13.446473+00:00"
+    },
+    {
+      "symbol": "QCOM",
+      "theme": "",
+      "drivers": [
+        "6 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "QCOM shows neutral signals with -1.4% price change and 6 recent news items.",
+      "llm_used": false,
+      "price": 177.01,
+      "change_pct": -1.4311,
+      "volume_ratio": 1.52,
+      "news_count": 6,
+      "earnings_days": null,
+      "score": 2.59,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Jim Cramer Notes Arm Holdings Stock Is \u201cGoing Parabolic\u201d",
+        "Jim Cramer Says \u201cQUALCOMM Was Considered More of a Niche Cell Phone Play, and No Longer\u201d",
+        "Big Tech Earnings Show Split Between AI Trade Winners and Losers",
+        "How The Investment Story For Qualcomm (QCOM) Is Shifting With AI And Smartphone Uncertainty",
+        "Top 50 High-Quality Dividend Growth Stocks For May 2026"
+      ],
+      "analyzed_at": "2026-05-04T06:44:15.100082+00:00"
+    },
+    {
+      "symbol": "NEE",
+      "theme": "",
+      "drivers": [
+        "7 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "NEE shows neutral signals with -1.0% price change and 7 recent news items.",
+      "llm_used": false,
+      "price": 96.95,
+      "change_pct": -0.9501,
+      "volume_ratio": 0.74,
+      "news_count": 7,
+      "earnings_days": null,
+      "score": 2.54,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Data Center Expert Warns Gigawatt-Scale AI Buildouts Could Trigger Rolling Blackouts",
+        "Better Dividend Stock: NextEra Energy vs. Black Hills",
+        "A Look At NextEra Energy\u2019s Valuation After Strong Q1 Beat And Record Renewable Project Additions",
+        "My Top 3 Green Energy Stocks for May 2026",
+        "The Energy Transition Isn't Dead. These 3 Renewable Stocks Are Built to Last Decades."
+      ],
+      "analyzed_at": "2026-05-04T06:44:16.593756+00:00"
+    },
+    {
+      "symbol": "HD",
+      "theme": "",
+      "drivers": [
+        "6 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "HD shows neutral signals with -1.5% price change and 6 recent news items.",
+      "llm_used": false,
+      "price": 323.88,
+      "change_pct": -1.4963,
+      "volume_ratio": 0.97,
+      "news_count": 6,
+      "earnings_days": null,
+      "score": 2.42,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Is The Home Depot, Inc. (HD) A Good Stock To Buy Now?",
+        "The Bull Case For Home Depot (HD) Could Change Following Wren Kitchens\u2019 Abrupt Bankruptcy Fallout",
+        "Top 50 High-Quality Dividend Growth Stocks For May 2026",
+        "Corporate America Earnings Beat Back Wall Street\u2019s Wall of Worry",
+        "One May Dog Of The Dow To Buy"
+      ],
+      "analyzed_at": "2026-05-04T06:44:18.511212+00:00"
+    },
+    {
+      "symbol": "LIN",
+      "theme": "",
+      "drivers": [
+        "Positive news sentiment from earnings expectations",
+        "Analyst upgrades from Bernstein and Goldman Sachs",
+        "Recent strong EPS growth and strategic acquisitions highlighted in earnings call"
+      ],
+      "risks": [
+        "Potential volatility around upcoming earnings announcements",
+        "Market reaction to macroeconomic factors affecting the sector"
+      ],
+      "sentiment": "bullish",
+      "summary": "Linde plc's stock is experiencing positive momentum driven by favorable analyst ratings and strong earnings growth.",
+      "llm_used": true,
+      "price": 507.92,
+      "change_pct": 1.3529,
+      "volume_ratio": 1.0,
+      "news_count": 5,
+      "earnings_days": null,
+      "score": 2.1,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "The Bull Case For Linde (LIN) Could Change Following Q1 2026 Earnings Beat And Dividend Hike",
+        "LINDE PLC : Buy rating from Bernstein",
+        "LINDE PLC : Goldman Sachs maintains a Buy rating",
+        "Linde plc: Q126 fine and forex in support",
+        "Linde PLC (LIN) Q1 2026 Earnings Call Highlights: Strong EPS Growth and Strategic Acquisitions ..."
+      ],
+      "analyzed_at": "2026-05-04T06:51:06.172631+00:00"
+    },
+    {
+      "symbol": "AMGN",
+      "theme": "Biotech & Pharma",
+      "drivers": [
+        "Significant price movement of -4.7%"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "bearish",
+      "summary": "AMGN shows bearish signals with -4.7% price change and 2 recent news items.",
+      "llm_used": false,
+      "price": 329.82,
+      "change_pct": -4.7451,
+      "volume_ratio": 1.39,
+      "news_count": 2,
+      "earnings_days": null,
+      "score": 2.01,
+      "reasons": [
+        "price_move"
+      ],
+      "news_headlines": [
+        "AMGN Q1 Deep Dive: Growth Drivers Offset Patent Losses, Pipeline Progress in Focus",
+        "One May Dog Of The Dow To Buy"
+      ],
+      "analyzed_at": "2026-05-04T06:44:20.077384+00:00"
+    },
+    {
+      "symbol": "ADBE",
+      "theme": "",
+      "drivers": [
+        "4 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "ADBE shows neutral signals with +1.9% price change and 4 recent news items.",
+      "llm_used": false,
+      "price": 250.71,
+      "change_pct": 1.8732,
+      "volume_ratio": 0.85,
+      "news_count": 4,
+      "earnings_days": null,
+      "score": 1.86,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Should Adobe-Powered AI Personalization at DICK'S (DKS) Require Action From Investors?",
+        "AI Is Driving the Market: J.P. Morgan Picks 2 Stocks With Direct Exposure",
+        "5 big analyst AI moves: JPM downgrades Meta; Micron gets a fresh Street-high PT",
+        "Pearson Q1 Earnings Call Highlights"
+      ],
+      "analyzed_at": "2026-05-04T06:44:21.797510+00:00"
+    },
+    {
+      "symbol": "ACN",
+      "theme": "",
+      "drivers": [
+        "5 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "ACN shows neutral signals with +0.6% price change and 5 recent news items.",
+      "llm_used": false,
+      "price": 179.83,
+      "change_pct": 0.6267,
+      "volume_ratio": 0.54,
+      "news_count": 5,
+      "earnings_days": null,
+      "score": 1.81,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Microsoft Copilot Enterprise Win Highlights Growing AI Usage And Valuation Gap",
+        "2 Cash-Producing Stocks to Target This Week and 1 Facing Challenges",
+        "Top 50 High-Quality Dividend Growth Stocks For May 2026",
+        "Weight loss and hair loss: The growing hair treatment market from GLP-1s",
+        "5 Relatively Secure And Cheap Dividend Stocks, Yields Up To 8% (May 2026)"
+      ],
+      "analyzed_at": "2026-05-04T06:44:23.429591+00:00"
+    },
+    {
+      "symbol": "MS",
+      "theme": "",
+      "drivers": [
+        "5 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "MS shows neutral signals with -0.2% price change and 5 recent news items.",
+      "llm_used": false,
+      "price": 190.17,
+      "change_pct": -0.2204,
+      "volume_ratio": 0.67,
+      "news_count": 5,
+      "earnings_days": null,
+      "score": 1.77,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "How The Goodyear Tire & Rubber (GT) Investment Story Is Shifting After Target Cuts",
+        "Why The Narrative On KeyCorp (KEY) Is Shifting With New Targets And M&A Talk",
+        "Morgan Stanley Slashes iQIYI, Inc. (IQ) Forecasts, Is the Worst Still Ahead?",
+        "Morgan Stanley Raises Apple (AAPL) Price Target, Keeps Overweight Rating",
+        "Meta Buys Robotics Startup Assured Robot Intelligence To Power Humanoid Push As $5 Trillion Market Race Heats Up"
+      ],
+      "analyzed_at": "2026-05-04T06:44:25.091979+00:00"
+    },
+    {
+      "symbol": "JNJ",
+      "theme": "",
+      "drivers": [
+        "4 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "JNJ shows neutral signals with -1.2% price change and 4 recent news items.",
+      "llm_used": false,
+      "price": 227.19,
+      "change_pct": -1.1573,
+      "volume_ratio": 0.83,
+      "news_count": 4,
+      "earnings_days": null,
+      "score": 1.71,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Jim Cramer Believes Competitors Might Hurt Intuitive Surgical",
+        "How Investors Are Reacting To Halozyme Therapeutics (HALO) Hiring Big-Pharma Veteran Darren Snellgrove As CFO",
+        "Jim Cramer Shares Key Trend For Johnson & Johnson (JNJ) Shares",
+        "Is Johnson & Johnson (JNJ) Still Fairly Priced After Its Strong 1-Year Share Price Run?"
+      ],
+      "analyzed_at": "2026-05-04T06:44:26.928819+00:00"
+    },
+    {
+      "symbol": "INTU",
+      "theme": "",
+      "drivers": [
+        "3 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "INTU shows neutral signals with +2.7% price change and 3 recent news items.",
+      "llm_used": false,
+      "price": 399.04,
+      "change_pct": 2.713,
+      "volume_ratio": 0.52,
+      "news_count": 3,
+      "earnings_days": null,
+      "score": 1.62,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Is Intuit Inc. (INTU) A Good Stock To Buy Now?",
+        "Deutsche Bank Reaffirms Buy on Intuit (INTU) After TurboTax Survey Insights",
+        "Intuit Reshapes Small Business Leadership What It May Mean For Investors"
+      ],
+      "analyzed_at": "2026-05-04T06:44:28.570115+00:00"
+    },
+    {
+      "symbol": "WMT",
+      "theme": "",
+      "drivers": [
+        "4 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "WMT shows neutral signals with -0.3% price change and 4 recent news items.",
+      "llm_used": false,
+      "price": 131.6,
+      "change_pct": -0.2501,
+      "volume_ratio": 0.49,
+      "news_count": 4,
+      "earnings_days": null,
+      "score": 1.41,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Amazon Just Made a Big Move. These 2 S&P 500 Stocks Are Next to Watch.",
+        "If You'd Invested $10,000 in Bloom Energy One Year Ago, Here's How Much You'd Have Today",
+        "Handicapping The S&P 500's Top Stocks Like A Horse Race: Favorites, Long Shots And The Rest",
+        "Gas prices are high right now. Use these 6 tools to save on fuel"
+      ],
+      "analyzed_at": "2026-05-04T06:44:30.289748+00:00"
+    },
+    {
+      "symbol": "TXN",
+      "theme": "",
+      "drivers": [
+        "4 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "TXN shows neutral signals with -0.0% price change and 4 recent news items.",
+      "llm_used": false,
+      "price": 281.02,
+      "change_pct": -0.0213,
+      "volume_ratio": 0.6,
+      "news_count": 4,
+      "earnings_days": null,
+      "score": 1.4,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Is Texas Instruments Incorporated (TXN) A Good Stock To Buy Now?",
+        "What Does Texas Instruments Incorporated's (NASDAQ:TXN) Share Price Indicate?",
+        "Corporate America Earnings Beat Back Wall Street\u2019s Wall of Worry",
+        "Q1 GDP: Top-Heavy, Bifurcated, And Concerning"
+      ],
+      "analyzed_at": "2026-05-04T06:44:31.903034+00:00"
+    },
+    {
+      "symbol": "RTX",
+      "theme": "",
+      "drivers": [
+        "3 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "RTX shows neutral signals with -1.2% price change and 3 recent news items.",
+      "llm_used": false,
+      "price": 173.99,
+      "change_pct": -1.1813,
+      "volume_ratio": 0.76,
+      "news_count": 3,
+      "earnings_days": null,
+      "score": 1.39,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "RTX Annual Meeting: Calio Touts Record $271B Backlog, Output Gains, and Big 2026 Investment Plans",
+        "Cardinal Health Among 9 Companies To Announce Dividend Increases In The First Half Of May",
+        "A Look At RTX (RTX) Valuation After Recent Share Price Weakness And Backlog Growth"
+      ],
+      "analyzed_at": "2026-05-04T06:44:33.617555+00:00"
+    },
+    {
+      "symbol": "PEP",
+      "theme": "",
+      "drivers": [
+        "3 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "PEP shows neutral signals with -0.7% price change and 3 recent news items.",
+      "llm_used": false,
+      "price": 157.41,
+      "change_pct": -0.6814,
+      "volume_ratio": 0.62,
+      "news_count": 3,
+      "earnings_days": null,
+      "score": 1.24,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "UBS Highlights Strong Earnings Momentum for PepsiCo (PEP)",
+        "PepsiCo (PEP) Valuation Check After Earnings Rebound And Dividend Appeal Versus Coca Cola",
+        "Is\u00a0National Beverage Corp. (FIZZ)\u00a0A Good Stock\u00a0To\u00a0Buy Now?"
+      ],
+      "analyzed_at": "2026-05-04T06:44:35.195014+00:00"
+    },
+    {
+      "symbol": "UNH",
+      "theme": "",
+      "drivers": [
+        "3 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "UNH shows neutral signals with -0.5% price change and 3 recent news items.",
+      "llm_used": false,
+      "price": 368.78,
+      "change_pct": -0.4589,
+      "volume_ratio": 0.55,
+      "news_count": 3,
+      "earnings_days": null,
+      "score": 1.18,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "1 Cash-Producing Stock Worth Investigating and 2 Facing Headwinds",
+        "Is It Time To Reassess UnitedHealth Group (UNH) After Its Sharp 30 Day Rally?",
+        "Elon Musk's $4.8 Million Security Tab Reveals Rising Risks For Billionaire CEOs"
+      ],
+      "analyzed_at": "2026-05-04T06:44:36.887740+00:00"
+    },
+    {
+      "symbol": "T",
+      "theme": "",
+      "drivers": [
+        "3 news items in past 48h"
+      ],
+      "risks": [
+        "Limited data available for detailed analysis"
+      ],
+      "sentiment": "neutral",
+      "summary": "T shows neutral signals with -0.0% price change and 3 recent news items.",
+      "llm_used": false,
+      "price": 26.12,
+      "change_pct": -0.0383,
+      "volume_ratio": 0.74,
+      "news_count": 3,
+      "earnings_days": null,
+      "score": 1.15,
+      "reasons": [
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Assessing AT&T (T) Valuation After Mixed Short Term Returns And Long Term Shareholder Gains",
+        "Standard Oil Was a Rapacious Octopus. How the Beast Was Tamed.",
+        "Asian American Engineer of the Year Award and Conference Announces First Phase of 2025-2026 Awardees"
+      ],
+      "analyzed_at": "2026-05-04T06:44:38.454506+00:00"
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+apis:
+  fmp:
+    base_url: "https://financialmodelingprep.com/stable"  # new stable API (free tier)
+    base_url_v3: "https://financialmodelingprep.com/api/v3"  # v3 kept for earnings/calendar
+    key_env: "FMP_API_KEY"
+    batch_size: 100          # symbols per quote request
+    rate_limit_per_min: 250  # free tier
+
+  finnhub:
+    base_url: "https://finnhub.io/api/v1"
+    key_env: "FINNHUB_API_KEY"
+    rate_limit_per_min: 60   # free tier
+    news_days_back: 2        # how many days of news to fetch
+
+  llm:
+    provider: "openrouter"                          # openrouter | anthropic | openai
+    model: "openai/gpt-4o-mini"  # GPT-4o mini via OpenRouter — cheap and reliable
+    key_env: "OPENROUTER_API_KEY"
+    base_url: "https://openrouter.ai/api/v1"
+    site_url: "https://github.com/your-username/ai-finance"  # shown in OpenRouter dashboard
+    app_name: "AI Stock Intelligence"
+    enabled: true
+    max_tokens: 512
+    max_daily_calls: 30            # hard ceiling on LLM calls per day
+
+scanner:
+  min_price_change_pct: 3.0      # |change%| threshold
+  min_volume_ratio: 2.0           # volume / 20d avg volume
+  earnings_window_days: 7         # upcoming earnings within N days
+  min_news_count: 3               # at least N news items in past 2 days
+  max_output: 30                  # max stocks to pass to analyzer
+  dedup_window_days: 2            # skip stock if unchanged for N days
+
+report:
+  top_n: 10                       # top stocks to highlight in summary
+  sentiment_order: ["bearish", "neutral", "bullish"]
+
+scheduler:
+  collect_interval_hours: 1
+  analyze_time: "17:45"           # ET — 15 min after market close
+  timezone: "America/New_York"
+
+github:
+  branch: "main"
+  commit_message: "📊 Daily analysis update {date}"
+  data_output_path: "docs/data"   # served by GitHub Pages
+
+paths:
+  raw: "data/raw"
+  filtered: "data/filtered"
+  analyzed: "data/analyzed"
+  output: "docs/data"
+  symbols: "config/symbols.json"

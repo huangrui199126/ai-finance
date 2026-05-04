@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en" x-data="stockApp()" x-init="init()">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title x-text="stock ? stock.symbol + ' — AI Stock Intelligence' : 'Stock Detail'">Stock Detail</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>[x-cloak]{display:none!important}</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
+
+  <!-- Nav -->
+  <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800 px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+      <span class="text-2xl">📈</span><span>AI Stock Intelligence</span>
+    </a>
+    <div class="flex gap-4 text-sm">
+      <a href="index.html" class="text-slate-400 hover:text-slate-200 transition">← Back to Today</a>
+    </div>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-4 sm:px-6 py-10 space-y-8">
+
+    <div x-show="loading" class="flex justify-center py-24 text-slate-500">
+      <svg class="animate-spin h-8 w-8" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+    </div>
+
+    <div x-cloak x-show="!loading && stock">
+
+      <!-- Header -->
+      <div class="flex flex-wrap items-start justify-between gap-4">
+        <div>
+          <div class="flex items-center gap-3 mb-1">
+            <h1 class="text-4xl font-black font-mono" x-text="stock.symbol"></h1>
+            <span x-show="stock.theme"
+                  class="text-sm bg-sky-900/40 text-sky-300 px-3 py-1 rounded-full"
+                  x-text="stock.theme"></span>
+          </div>
+          <div class="text-slate-400 text-base" x-text="stock.name || ''"></div>
+          <div class="text-xs text-slate-600 mt-1"
+               x-text="stock.analyzed_at ? 'Analyzed ' + new Date(stock.analyzed_at).toLocaleString() : ''"></div>
+        </div>
+        <div class="text-right">
+          <div class="text-4xl font-black"
+               x-text="stock.price ? `$${stock.price.toFixed(2)}` : '—'"></div>
+          <div class="text-xl font-bold"
+               :class="stock.change_pct >= 0 ? 'text-emerald-400' : 'text-red-400'"
+               x-text="stock.change_pct != null ? `${stock.change_pct >= 0 ? '+' : ''}${stock.change_pct.toFixed(2)}%` : ''">
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <div class="bg-slate-900 rounded-xl p-4">
+          <div class="text-xs text-slate-500 mb-1">Sentiment</div>
+          <div class="font-bold capitalize"
+               :class="stock.sentiment==='bullish'?'text-emerald-400':stock.sentiment==='bearish'?'text-red-400':'text-slate-400'"
+               x-text="stock.sentiment"></div>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-4">
+          <div class="text-xs text-slate-500 mb-1">Score</div>
+          <div class="font-bold" x-text="stock.score?.toFixed(2) + ' / 10' || '—'"></div>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-4">
+          <div class="text-xs text-slate-500 mb-1">Volume Ratio</div>
+          <div class="font-bold"
+               :class="stock.volume_ratio >= 2 ? 'text-amber-400' : ''"
+               x-text="stock.volume_ratio ? stock.volume_ratio.toFixed(1) + '×' : '—'"></div>
+        </div>
+        <div class="bg-slate-900 rounded-xl p-4">
+          <div class="text-xs text-slate-500 mb-1">Earnings</div>
+          <div class="font-bold"
+               :class="stock.earnings_days <= 7 ? 'text-purple-400' : ''"
+               x-text="stock.earnings_days != null ? `in ${stock.earnings_days}d` : 'N/A'"></div>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+        <div class="text-xs text-slate-500 uppercase tracking-widest mb-2">Summary</div>
+        <div class="text-slate-200 text-base leading-relaxed" x-text="stock.summary"></div>
+        <div x-show="stock.llm_used"
+             class="flex items-center gap-1.5 mt-3 text-xs text-slate-500">
+          <span>🤖</span> Analyzed by AI
+        </div>
+      </div>
+
+      <!-- Drivers + Risks -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <!-- Drivers -->
+        <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+          <div class="text-xs text-slate-500 uppercase tracking-widest mb-4">Key Drivers</div>
+          <ul class="space-y-2">
+            <template x-for="(d, i) in (stock.drivers || [])" :key="i">
+              <li class="flex items-start gap-2 text-sm">
+                <span class="text-emerald-400 mt-0.5 shrink-0">→</span>
+                <span class="text-slate-300" x-text="d"></span>
+              </li>
+            </template>
+            <li x-show="!stock.drivers?.length" class="text-slate-600 text-sm">No driver data</li>
+          </ul>
+        </div>
+
+        <!-- Risks -->
+        <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+          <div class="text-xs text-slate-500 uppercase tracking-widest mb-4">Key Risks</div>
+          <ul class="space-y-2">
+            <template x-for="(r, i) in (stock.risks || [])" :key="i">
+              <li class="flex items-start gap-2 text-sm">
+                <span class="text-amber-400 mt-0.5 shrink-0">⚠</span>
+                <span class="text-slate-300" x-text="r"></span>
+              </li>
+            </template>
+            <li x-show="!stock.risks?.length" class="text-slate-600 text-sm">No risk data</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- News -->
+      <div x-show="stock.news_headlines?.length">
+        <div class="bg-slate-900 rounded-2xl p-6 border border-slate-800">
+          <div class="text-xs text-slate-500 uppercase tracking-widest mb-4">Recent News</div>
+          <ul class="space-y-3">
+            <template x-for="(h, i) in (stock.news_headlines || [])" :key="i">
+              <li class="flex items-start gap-2 text-sm">
+                <span class="text-slate-600 shrink-0">•</span>
+                <span class="text-slate-400" x-text="h"></span>
+              </li>
+            </template>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Signal tags -->
+      <div class="flex flex-wrap gap-2">
+        <template x-for="r in (stock.reasons || [])" :key="r">
+          <span class="text-xs bg-slate-800 rounded-lg px-3 py-1.5 text-slate-400"
+                x-text="'🔔 ' + r.replace(/_/g,' ')"></span>
+        </template>
+      </div>
+
+      <!-- Disclaimer -->
+      <div class="text-xs text-slate-700 leading-relaxed">
+        ⚠ This analysis is generated automatically for informational purposes only. It does not constitute financial advice or a recommendation to buy, sell, or hold any security.
+      </div>
+    </div>
+
+    <div x-cloak x-show="!loading && !stock" class="text-center py-24 text-slate-600">
+      Stock not found in today's report.
+      <a href="index.html" class="block mt-4 text-sky-500 underline">← Back to dashboard</a>
+    </div>
+  </main>
+
+  <script>
+    const DATA_BASE = './data';
+
+    function stockApp() {
+      return {
+        loading: true,
+        stock: null,
+
+        async init() {
+          const params = new URLSearchParams(location.search);
+          const symbol = params.get('symbol')?.toUpperCase();
+          if (!symbol) { this.loading = false; return; }
+
+          try {
+            const r = await fetch(`${DATA_BASE}/latest.json?t=${Date.now()}`);
+            const report = await r.json();
+            this.stock = report.all_stocks?.find(s => s.symbol === symbol) || null;
+          } catch (e) {
+            console.warn('Could not load report');
+          }
+          this.loading = false;
+        },
+      };
+    }
+  </script>
+</body>
+</html>

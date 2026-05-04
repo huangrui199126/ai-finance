@@ -1,0 +1,131 @@
+{
+  "date": "2026-05-04",
+  "updated_at": "2026-05-04T06:50:38.174314+00:00",
+  "themes": [
+    {
+      "theme": "Semiconductors",
+      "score": 6.0,
+      "strength": "medium",
+      "related_symbols": [
+        "NVDA",
+        "AVGO"
+      ],
+      "sample_headlines": [
+        "Prediction: This Will Be the Top-Performing Artificial Intelligence (AI) Semiconductor Stock Over the Next Year. (Hint: It's Not Nvidia, Broadcom, or Micron.)",
+        "This Is My Favorite AI Chip Stock (By Far) -- and It's Not Nvidia, Intel, or Broadcom",
+        "Bull vs. Bear: Is Taiwan Semiconductor Manufacturing Stock a Buy or Sell?"
+      ],
+      "movers": []
+    },
+    {
+      "theme": "AI & Machine Learning",
+      "score": 3.0,
+      "strength": "low",
+      "related_symbols": [
+        "NVDA",
+        "MSFT",
+        "AVGO"
+      ],
+      "sample_headlines": [
+        "Prediction: This Will Be the Top-Performing Artificial Intelligence (AI) Semiconductor Stock Over the Next Year. (Hint: It's Not Nvidia, Broadcom, or Micron.)",
+        "This Is My Favorite AI Chip Stock (By Far) -- and It's Not Nvidia, Intel, or Broadcom",
+        "MediaTek hires former TSMC executive to boost AI chip packaging"
+      ],
+      "movers": [
+        {
+          "symbol": "MSFT",
+          "change_pct": 1.63
+        }
+      ]
+    },
+    {
+      "theme": "Biotech & Pharma",
+      "score": 3.0,
+      "strength": "low",
+      "related_symbols": [
+        "LLY",
+        "MRK",
+        "ABBV",
+        "AMGN"
+      ],
+      "sample_headlines": [
+        "MRK Q1 Deep Dive: Oncology Strength, New Launches, and Pipeline Milestones Define Quarter"
+      ],
+      "movers": [
+        {
+          "symbol": "LLY",
+          "change_pct": 3.07
+        },
+        {
+          "symbol": "MRK",
+          "change_pct": 2.73
+        },
+        {
+          "symbol": "ABBV",
+          "change_pct": -2.23
+        },
+        {
+          "symbol": "AMGN",
+          "change_pct": -4.75
+        }
+      ]
+    },
+    {
+      "theme": "Financials & Banking",
+      "score": 2.0,
+      "strength": "low",
+      "related_symbols": [
+        "GS"
+      ],
+      "sample_headlines": [
+        "The Fed Just Did Something It Hasn't Done Since 1992. Here's What It Means.",
+        "Treasury Market on Watch for Shift in Yellen-Era Debt Playbook"
+      ],
+      "movers": []
+    },
+    {
+      "theme": "Crypto & Fintech",
+      "score": 2.0,
+      "strength": "low",
+      "related_symbols": [],
+      "sample_headlines": [
+        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto",
+        "MRK Q1 Deep Dive: Oncology Strength, New Launches, and Pipeline Milestones Define Quarter"
+      ],
+      "movers": []
+    },
+    {
+      "theme": "Energy & Oil",
+      "score": 2.0,
+      "strength": "low",
+      "related_symbols": [],
+      "sample_headlines": [
+        "Merck: All The Focus On The Pipeline",
+        "MRK Q1 Deep Dive: Oncology Strength, New Launches, and Pipeline Milestones Define Quarter"
+      ],
+      "movers": []
+    },
+    {
+      "theme": "Cloud & SaaS",
+      "score": 1.0,
+      "strength": "low",
+      "related_symbols": [
+        "MSFT",
+        "CRM"
+      ],
+      "sample_headlines": [
+        "Her Dying Wish Was To Give Their Kids A Part Of Home Equity. Now, He's Getting Married Again, And Wants To Take Back $400K From His Kids"
+      ],
+      "movers": [
+        {
+          "symbol": "MSFT",
+          "change_pct": 1.63
+        },
+        {
+          "symbol": "CRM",
+          "change_pct": 4.13
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+# Environment & secrets
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Raw data (large, regenerated every run)
+data/raw/
+data/filtered/
+data/analyzed/
+
+# Keep docs/data (published to GitHub Pages)
+!docs/
+!docs/**
+
+# macOS
+.DS_Store
+.AppleDouble
+
+# Logs
+*.log

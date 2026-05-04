@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en" x-data="historyApp()" x-init="init()">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>History — AI Stock Intelligence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>[x-cloak]{display:none!important}</style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
+
+  <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800 px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+      <span class="text-2xl">📈</span><span>AI Stock Intelligence</span>
+    </a>
+    <div class="flex gap-4 text-sm">
+      <a href="index.html" class="text-slate-400 hover:text-slate-200">Today</a>
+      <a href="history.html" class="text-sky-400 font-semibold">History</a>
+    </div>
+  </nav>
+
+  <main class="max-w-5xl mx-auto px-4 sm:px-6 py-10 space-y-6">
+    <h1 class="text-2xl font-bold">Historical Reports</h1>
+
+    <div x-show="loading" class="text-slate-500 py-10 text-center">Loading…</div>
+
+    <div x-cloak x-show="!loading">
+      <div x-show="!dates.length" class="text-slate-600 py-10 text-center">No historical reports yet.</div>
+
+      <div class="space-y-4">
+        <template x-for="date in dates" :key="date">
+          <div class="bg-slate-900 rounded-2xl p-5 border border-slate-800 cursor-pointer hover:border-slate-700 transition"
+               @click="toggleDate(date)">
+
+            <div class="flex items-center justify-between">
+              <div class="font-semibold" x-text="date"></div>
+              <div class="flex items-center gap-3 text-sm">
+                <span x-show="reports[date]"
+                      :class="moodColor(reports[date]?.market_mood)"
+                      x-text="reports[date]?.market_mood" class="font-medium capitalize"></span>
+                <span class="text-slate-600" x-text="reports[date] ? `${reports[date].total_analyzed} stocks` : ''"></span>
+                <span class="text-slate-500" x-text="activeDate === date ? '▲' : '▼'"></span>
+              </div>
+            </div>
+
+            <!-- Expanded detail -->
+            <div x-show="activeDate === date && reports[date]" x-cloak @click.stop class="mt-5 space-y-4">
+              <!-- Themes -->
+              <div x-show="reports[date]?.top_themes?.length">
+                <div class="text-xs text-slate-500 uppercase tracking-widest mb-2">Top Themes</div>
+                <div class="flex flex-wrap gap-2">
+                  <template x-for="t in (reports[date]?.top_themes || [])" :key="t.name">
+                    <span class="text-xs bg-slate-800 rounded-full px-3 py-1"
+                          :class="strengthBadge(t.strength)"
+                          x-text="t.name + ' · ' + t.strength"></span>
+                  </template>
+                </div>
+              </div>
+
+              <!-- Top stocks -->
+              <div>
+                <div class="text-xs text-slate-500 uppercase tracking-widest mb-2">Top Stocks</div>
+                <div class="space-y-2">
+                  <template x-for="s in (reports[date]?.top_stocks || []).slice(0,5)" :key="s.symbol">
+                    <a :href="`stock.html?symbol=${s.symbol}`"
+                       class="flex items-center justify-between bg-slate-800 rounded-xl px-4 py-3 hover:bg-slate-700 transition">
+                      <div class="flex items-center gap-3">
+                        <span class="font-mono font-bold" x-text="s.symbol"></span>
+                        <span x-show="s.theme" class="text-xs text-sky-400" x-text="s.theme"></span>
+                      </div>
+                      <div class="flex items-center gap-4 text-sm">
+                        <span :class="s.change_pct >= 0 ? 'text-emerald-400' : 'text-red-400'"
+                              x-text="s.change_pct != null ? `${s.change_pct >= 0 ? '+' : ''}${s.change_pct.toFixed(2)}%` : ''">
+                        </span>
+                        <span :class="s.sentiment==='bullish'?'text-emerald-400':s.sentiment==='bearish'?'text-red-400':'text-slate-500'"
+                              class="text-xs capitalize" x-text="s.sentiment"></span>
+                      </div>
+                    </a>
+                  </template>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </template>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const DATA_BASE = './data';
+
+    function historyApp() {
+      return {
+        loading: true,
+        dates: [],
+        reports: {},
+        activeDate: null,
+
+        async init() {
+          try {
+            const r = await fetch(`${DATA_BASE}/index.json?t=${Date.now()}`);
+            const idx = await r.json();
+            this.dates = idx.dates || [];
+          } catch (e) {
+            console.warn('No index.json found');
+            this.dates = [];
+          }
+          this.loading = false;
+        },
+
+        async toggleDate(date) {
+          if (this.activeDate === date) {
+            this.activeDate = null;
+            return;
+          }
+          this.activeDate = date;
+          if (!this.reports[date]) {
+            try {
+              const r = await fetch(`${DATA_BASE}/${date}.json?t=${Date.now()}`);
+              this.reports[date] = await r.json();
+            } catch (e) {
+              this.reports[date] = null;
+            }
+          }
+        },
+
+        moodColor(mood) {
+          if (!mood) return 'text-slate-400';
+          if (mood.includes('bullish')) return 'text-emerald-400';
+          if (mood.includes('bearish')) return 'text-red-400';
+          return 'text-slate-400';
+        },
+
+        strengthBadge(s) {
+          if (s === 'high')   return 'text-red-300';
+          if (s === 'medium') return 'text-amber-300';
+          return 'text-slate-400';
+        },
+      };
+    }
+  </script>
+</body>
+</html>

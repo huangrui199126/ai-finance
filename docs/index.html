@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en" x-data="app()" x-init="init()">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Stock Intelligence</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    .sentiment-bullish  { @apply text-emerald-400; }
+    .sentiment-bearish  { @apply text-red-400; }
+    .sentiment-neutral  { @apply text-slate-400; }
+    .card { transition: transform .15s ease, box-shadow .15s ease; }
+    .card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
+
+  <!-- Nav -->
+  <nav class="sticky top-0 z-50 bg-slate-900/90 backdrop-blur border-b border-slate-800 px-6 py-3 flex items-center justify-between">
+    <a href="index.html" class="flex items-center gap-2 font-bold text-lg tracking-tight">
+      <span class="text-2xl">📈</span>
+      <span>AI Stock Intelligence</span>
+    </a>
+    <div class="flex items-center gap-4 text-sm">
+      <a href="index.html" class="text-sky-400 font-semibold">Today</a>
+      <a href="history.html" class="text-slate-400 hover:text-slate-200 transition">History</a>
+    </div>
+  </nav>
+
+  <!-- Hero bar -->
+  <div class="bg-gradient-to-r from-slate-900 to-slate-800 border-b border-slate-800 px-6 py-5">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      <div>
+        <div class="text-xs text-slate-500 uppercase tracking-widest mb-1">Market Intelligence Report</div>
+        <div class="text-2xl font-bold" x-text="report?.date || 'Loading…'"></div>
+      </div>
+      <div class="flex items-center gap-6 text-sm">
+        <div>
+          <div class="text-slate-500 text-xs mb-0.5">Market Mood</div>
+          <div class="font-bold capitalize text-base"
+               :class="moodColor(report?.market_mood)"
+               x-text="report?.market_mood || '—'"></div>
+        </div>
+        <div class="w-px h-10 bg-slate-700"></div>
+        <div>
+          <div class="text-slate-500 text-xs mb-0.5">Scanned</div>
+          <div class="font-bold text-base" x-text="report?.total_scanned?.toLocaleString() || '—'"></div>
+        </div>
+        <div class="w-px h-10 bg-slate-700"></div>
+        <div>
+          <div class="text-slate-500 text-xs mb-0.5">Analyzed</div>
+          <div class="font-bold text-base" x-text="report?.total_analyzed || '—'"></div>
+        </div>
+        <div class="w-px h-10 bg-slate-700"></div>
+        <div>
+          <div class="text-slate-500 text-xs mb-0.5">Sentiment</div>
+          <div class="flex gap-2 mt-0.5">
+            <span class="text-emerald-400 font-semibold" x-text="`↑${report?.sentiment_breakdown?.bullish ?? 0}`"></span>
+            <span class="text-red-400 font-semibold"     x-text="`↓${report?.sentiment_breakdown?.bearish ?? 0}`"></span>
+            <span class="text-slate-400 font-semibold"   x-text="`–${report?.sentiment_breakdown?.neutral ?? 0}`"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 py-8 space-y-12">
+
+    <!-- Loading state -->
+    <div x-show="loading" class="flex items-center justify-center py-24 text-slate-500">
+      <svg class="animate-spin h-8 w-8 mr-3" fill="none" viewBox="0 0 24 24">
+        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+      </svg>
+      Loading market data…
+    </div>
+
+    <div x-cloak x-show="!loading">
+
+      <!-- ── Trending Themes ─────────────────────────────────────────────── -->
+      <section>
+        <h2 class="text-lg font-bold text-slate-200 mb-4 flex items-center gap-2">
+          <span>🔥</span> Trending Themes
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <template x-for="theme in report?.top_themes || []" :key="theme.name">
+            <div class="card bg-slate-900 rounded-2xl p-5 border border-slate-800 cursor-pointer"
+                 @click="filterByTheme(theme.name)">
+              <div class="flex items-start justify-between mb-3">
+                <div class="text-base font-bold" x-text="theme.name"></div>
+                <span class="text-xs font-bold px-2 py-0.5 rounded-full"
+                      :class="strengthBadge(theme.strength)"
+                      x-text="theme.strength?.toUpperCase()"></span>
+              </div>
+              <div class="flex flex-wrap gap-1.5">
+                <template x-for="sym in (theme.symbols || []).slice(0,6)" :key="sym">
+                  <a :href="`stock.html?symbol=${sym}`"
+                     class="text-xs bg-slate-800 hover:bg-slate-700 rounded-md px-2 py-0.5 text-sky-300 font-mono"
+                     x-text="sym" @click.stop></a>
+                </template>
+              </div>
+            </div>
+          </template>
+          <div x-show="!report?.top_themes?.length"
+               class="col-span-full text-slate-600 text-sm py-6 text-center">
+            No themes detected yet
+          </div>
+        </div>
+      </section>
+
+      <!-- ── Top Stocks ─────────────────────────────────────────────────── -->
+      <section>
+        <div class="flex items-center justify-between mb-4">
+          <h2 class="text-lg font-bold text-slate-200 flex items-center gap-2">
+            <span>⚡</span>
+            High-Signal Stocks
+            <span x-show="activeTheme" class="text-sm text-sky-400 font-normal">
+              — filtered by <strong x-text="activeTheme"></strong>
+              <button @click="activeTheme=''" class="ml-1 text-slate-500 hover:text-slate-300">✕</button>
+            </span>
+          </h2>
+          <div class="flex gap-2">
+            <button @click="sortBy='score'"
+                    :class="sortBy==='score' ? 'bg-sky-700 text-white' : 'bg-slate-800 text-slate-400'"
+                    class="text-xs px-3 py-1.5 rounded-lg transition">Score</button>
+            <button @click="sortBy='change'"
+                    :class="sortBy==='change' ? 'bg-sky-700 text-white' : 'bg-slate-800 text-slate-400'"
+                    class="text-xs px-3 py-1.5 rounded-lg transition">% Change</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+          <template x-for="stock in visibleStocks()" :key="stock.symbol">
+            <a :href="`stock.html?symbol=${stock.symbol}`"
+               class="card block bg-slate-900 rounded-2xl p-5 border border-slate-800 hover:border-slate-700">
+
+              <div class="flex items-start justify-between mb-3">
+                <div>
+                  <div class="flex items-center gap-2">
+                    <span class="font-bold font-mono text-lg" x-text="stock.symbol"></span>
+                    <span x-show="stock.theme"
+                          class="text-xs bg-slate-800 text-sky-400 px-2 py-0.5 rounded-full"
+                          x-text="stock.theme"></span>
+                  </div>
+                  <div class="text-xs text-slate-500 truncate max-w-[180px]" x-text="stock.name || ''"></div>
+                </div>
+                <div class="text-right">
+                  <div class="font-bold"
+                       :class="sentimentColor(stock.sentiment)"
+                       x-text="sentimentIcon(stock.sentiment) + ' ' + stock.sentiment"></div>
+                  <div class="text-xs text-slate-500 mt-0.5"
+                       x-text="`score ${stock.score?.toFixed(1) ?? '—'}`"></div>
+                </div>
+              </div>
+
+              <!-- Price row -->
+              <div class="flex items-center gap-3 mb-3">
+                <div class="text-xl font-bold" x-text="stock.price ? `$${stock.price.toFixed(2)}` : '—'"></div>
+                <div class="text-sm font-semibold"
+                     :class="stock.change_pct >= 0 ? 'text-emerald-400' : 'text-red-400'"
+                     x-text="stock.change_pct != null ? `${stock.change_pct >= 0 ? '+' : ''}${stock.change_pct.toFixed(2)}%` : ''">
+                </div>
+                <div x-show="stock.volume_ratio >= 2"
+                     class="text-xs bg-amber-900/40 text-amber-300 rounded px-1.5 py-0.5"
+                     x-text="`${stock.volume_ratio?.toFixed(1)}× vol`"></div>
+              </div>
+
+              <!-- Summary -->
+              <div class="text-sm text-slate-400 leading-snug mb-3" x-text="stock.summary"></div>
+
+              <!-- Signal tags -->
+              <div class="flex flex-wrap gap-1.5">
+                <template x-for="r in (stock.reasons || [])" :key="r">
+                  <span class="text-xs bg-slate-800 rounded px-2 py-0.5 text-slate-400" x-text="r.replace('_', ' ')"></span>
+                </template>
+                <span x-show="stock.earnings_days != null && stock.earnings_days <= 7"
+                      class="text-xs bg-purple-900/40 text-purple-300 rounded px-2 py-0.5">
+                  earnings in <span x-text="stock.earnings_days"></span>d
+                </span>
+              </div>
+            </a>
+          </template>
+        </div>
+
+        <div x-show="!visibleStocks().length" class="text-slate-600 text-sm py-8 text-center">
+          No stocks match the current filter
+        </div>
+      </section>
+
+      <!-- Disclaimer -->
+      <div class="border border-slate-800 rounded-xl p-4 text-xs text-slate-600 leading-relaxed">
+        <strong class="text-slate-500">⚠ Disclaimer:</strong>
+        This tool provides automated market intelligence for informational purposes only.
+        It does not constitute financial advice, trading recommendations, or investment guidance.
+        All information is sourced from third-party APIs and may contain errors or delays.
+        Past market patterns are not indicative of future results.
+        Always conduct your own due diligence before making any financial decisions.
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // Resolve data path relative to this HTML file
+    const DATA_BASE = './data';
+
+    function app() {
+      return {
+        loading: true,
+        report: null,
+        activeTheme: '',
+        sortBy: 'score',
+
+        async init() {
+          try {
+            const r = await fetch(`${DATA_BASE}/latest.json?t=${Date.now()}`);
+            this.report = await r.json();
+          } catch (e) {
+            console.warn('Could not load latest.json — using sample data');
+            this.report = sampleReport();
+          }
+          this.loading = false;
+        },
+
+        visibleStocks() {
+          let stocks = this.report?.all_stocks || [];
+          if (this.activeTheme) {
+            stocks = stocks.filter(s => s.theme === this.activeTheme);
+          }
+          if (this.sortBy === 'change') {
+            stocks = [...stocks].sort((a, b) => Math.abs(b.change_pct || 0) - Math.abs(a.change_pct || 0));
+          }
+          return stocks.slice(0, 30);
+        },
+
+        filterByTheme(name) {
+          this.activeTheme = this.activeTheme === name ? '' : name;
+        },
+
+        moodColor(mood) {
+          if (!mood) return 'text-slate-400';
+          if (mood.includes('bullish')) return 'text-emerald-400';
+          if (mood.includes('bearish')) return 'text-red-400';
+          return 'text-slate-400';
+        },
+
+        sentimentColor(s) {
+          if (s === 'bullish') return 'text-emerald-400';
+          if (s === 'bearish') return 'text-red-400';
+          return 'text-slate-500';
+        },
+
+        sentimentIcon(s) {
+          if (s === 'bullish') return '↑';
+          if (s === 'bearish') return '↓';
+          return '–';
+        },
+
+        strengthBadge(s) {
+          if (s === 'high')   return 'bg-red-900/50 text-red-300';
+          if (s === 'medium') return 'bg-amber-900/50 text-amber-300';
+          return 'bg-slate-800 text-slate-400';
+        },
+      };
+    }
+
+    function sampleReport() {
+      return {
+        date: new Date().toISOString().split('T')[0],
+        market_mood: 'cautiously bullish',
+        total_scanned: 3000, total_analyzed: 18, llm_analyzed: 15,
+        sentiment_breakdown: { bullish: 10, bearish: 4, neutral: 4 },
+        top_themes: [
+          { name: 'AI & Machine Learning', strength: 'high', symbols: ['NVDA','AMD','MSFT','META'] },
+          { name: 'Semiconductors', strength: 'medium', symbols: ['NVDA','AMD','SMCI','MU'] },
+          { name: 'Space & Defense', strength: 'low', symbols: ['RKLB','LMT','RTX'] },
+        ],
+        all_stocks: [
+          { symbol: 'NVDA', name: 'NVIDIA Corp', price: 875.40, change_pct: 5.2, volume_ratio: 3.1,
+            sentiment: 'bullish', score: 9.2, theme: 'AI & Machine Learning',
+            summary: 'Strong price momentum driven by continued AI infrastructure spending and data center demand.',
+            reasons: ['price_move', 'volume_spike', 'news_spike'], earnings_days: null },
+          { symbol: 'RKLB', name: 'Rocket Lab USA', price: 6.84, change_pct: 8.1, volume_ratio: 5.2,
+            sentiment: 'bullish', score: 8.7, theme: 'Space & Defense',
+            summary: 'Contract announcement drives significant price and volume surge in space sector.',
+            reasons: ['price_move', 'volume_spike', 'news_spike'], earnings_days: 5 },
+          { symbol: 'SMCI', name: 'Super Micro Computer', price: 812.30, change_pct: -4.1, volume_ratio: 2.8,
+            sentiment: 'bearish', score: 7.1, theme: 'AI & Machine Learning',
+            summary: 'Regulatory scrutiny and accounting concerns weigh on shares despite AI tailwind.',
+            reasons: ['price_move', 'volume_spike'], earnings_days: null },
+        ],
+      };
+    }
+  </script>
+</body>
+</html>
