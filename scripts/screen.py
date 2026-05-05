@@ -46,8 +46,11 @@ FH_BASE      = CFG["apis"]["finnhub"]["base_url"]
 FH_KEY       = CFG["apis"]["finnhub"]["key"]
 
 # ── Screening thresholds ───────────────────────────────────────────────────────
-MIN_MARKET_CAP     = 5_000_000_000    # $5B minimum
-DAILY_DROP_PCT     = -8.0             # single-day crash threshold
+MIN_MARKET_CAP     = 5_000_000_000    # $5B minimum — hard floor, no exceptions
+DAILY_DROP_PCT     = -5.0             # single-day crash threshold for large caps
+#   Note: -5% is right for $5B+ stocks. Large caps rarely drop 8%+ except on
+#   major earnings misses (Roblox -22%, Meta -10%). On a normal day 0 results
+#   is correct. On an earnings/catalyst day you'll get real targets.
 MULTIDAY_DROP_PCT  = -12.0            # 5-day cumulative drop threshold
 MIN_VOLUME_RATIO   = 1.5              # current vol must be 1.5× average
 MAX_CANDIDATES     = 30               # hard cap on output
@@ -85,64 +88,100 @@ def _finnhub(endpoint: str, params: dict = {}) -> dict | list | None:
 
 # ─── Data sources ─────────────────────────────────────────────────────────────
 
-def get_biggest_losers() -> list[dict]:
+def get_large_cap_losers() -> list[dict]:
     """
-    FMP biggest-losers endpoint — top daily movers market-wide.
-    Returns normalised list with symbol, change_pct, price, volume.
+    PRIMARY SOURCE: FMP stock-screener filtered by market cap > $5B + price drop.
+
+    This is the RIGHT approach for our strategy — we only want quality large-cap
+    companies that crashed hard. The FMP biggest-losers endpoint returns micro-caps
+    which are irrelevant noise.
+
+    On a calm market day this may return 0 results. That is CORRECT — on a normal
+    day there's nothing worth selling puts on. On an earnings/catalyst day (Roblox
+    -22%, HOOD -14%, Meta -10%) it will populate with real targets.
     """
-    data = _fmp("biggest-losers") or []
     results = []
-    for row in data:
-        sym = row.get("symbol", "")
-        pct = row.get("changesPercentage") or row.get("changePercentage") or 0
-        if not sym:
-            continue
-        results.append({
-            "symbol":     sym,
-            "name":       row.get("name", sym),
-            "price":      row.get("price") or row.get("priceAvg50"),
-            "change_pct": float(pct),
-            "volume":     row.get("volume"),
-        })
-    logger.info(f"FMP biggest-losers: {len(results)} stocks")
-    return results
 
+    # Query 1: large caps (>$5B) down >= 5% today
+    for endpoint in ["stock-screener", "v3/stock-screener"]:
+        base = FMP_V3 if endpoint.startswith("v3/") else FMP_BASE
+        ep   = endpoint.replace("v3/", "")
+        params = {
+            "marketCapMoreThan": MIN_MARKET_CAP,
+            "priceMoreThan":     5,
+            "isActivelyTrading": "true",
+            "exchange":          "NYSE,NASDAQ",
+            "limit":             200,
+        }
+        data = _fmp(ep, params, base=base)
+        if data and isinstance(data, list):
+            for row in data:
+                sym = row.get("symbol", "")
+                pct = float(row.get("changesPercentage") or row.get("changePercentage") or 0)
+                mkt = float(row.get("marketCap") or 0)
+                vol = row.get("volume") or 0
+                avg_vol = row.get("avgVolume") or row.get("averageVolume") or 0
 
-def get_screener_losers() -> list[dict]:
-    """
-    FMP stock-screener filtered by market cap + price drop.
-    Catches high-quality companies that missed the biggest-losers cutoff.
-    Tries both stable and v3 endpoints.
-    """
-    params = {
-        "marketCapMoreThan": MIN_MARKET_CAP,
-        "priceMoreThan": 5,            # no penny stocks
+                if not sym or mkt < MIN_MARKET_CAP:
+                    continue
+                if pct > DAILY_DROP_PCT:   # not a big enough drop
+                    continue
+
+                results.append({
+                    "symbol":     sym,
+                    "name":       row.get("companyName") or row.get("name") or sym,
+                    "price":      row.get("price"),
+                    "change_pct": pct,
+                    "volume":     vol,
+                    "avg_volume": avg_vol,
+                    "market_cap": int(mkt),
+                    "sector":     row.get("sector", ""),
+                    "industry":   row.get("industry", ""),
+                    "exchange":   row.get("exchangeShortName") or row.get("exchange") or "",
+                })
+            logger.info(f"FMP screener ({ep}): {len(results)} large-cap stocks with drop ≤ {DAILY_DROP_PCT}%")
+            break  # got data from first endpoint that worked
+
+    # Query 2: mega-caps (>$20B) with smaller drops >= 3% to catch Meta/MSFT/GOOG type events
+    mega_params = {
+        "marketCapMoreThan": 20_000_000_000,
+        "priceMoreThan":     10,
         "isActivelyTrading": "true",
-        "exchange": "NYSE,NASDAQ,AMEX",
-        "limit": 100,
+        "exchange":          "NYSE,NASDAQ",
+        "limit":             100,
     }
-    # Try stable endpoint first
-    data = _fmp("stock-screener", params)
-    if not data:
-        data = _fmp_v3("stock-screener", params) or []
+    for endpoint in ["stock-screener", "v3/stock-screener"]:
+        base = FMP_V3 if endpoint.startswith("v3/") else FMP_BASE
+        ep   = endpoint.replace("v3/", "")
+        data = _fmp(ep, mega_params, base=base)
+        if data and isinstance(data, list):
+            existing = {r["symbol"] for r in results}
+            added = 0
+            for row in data:
+                sym = row.get("symbol", "")
+                pct = float(row.get("changesPercentage") or row.get("changePercentage") or 0)
+                mkt = float(row.get("marketCap") or 0)
+                if not sym or sym in existing or mkt < 20_000_000_000:
+                    continue
+                if pct > -3.0:  # mega-caps dropping 3%+ are significant
+                    continue
+                results.append({
+                    "symbol":     sym,
+                    "name":       row.get("companyName") or row.get("name") or sym,
+                    "price":      row.get("price"),
+                    "change_pct": pct,
+                    "volume":     row.get("volume") or 0,
+                    "avg_volume": row.get("avgVolume") or row.get("averageVolume") or 0,
+                    "market_cap": int(mkt),
+                    "sector":     row.get("sector", ""),
+                    "industry":   row.get("industry", ""),
+                    "exchange":   row.get("exchangeShortName") or row.get("exchange") or "",
+                })
+                added += 1
+            logger.info(f"Mega-cap (-3%+) additions: {added}")
+            break
 
-    results = []
-    for row in data:
-        sym = row.get("symbol", "")
-        pct = row.get("changesPercentage") or row.get("changePercentage") or 0
-        mkt = row.get("marketCap") or 0
-        if not sym or mkt < MIN_MARKET_CAP:
-            continue
-        if float(pct) <= DAILY_DROP_PCT:
-            results.append({
-                "symbol":     sym,
-                "name":       row.get("companyName") or row.get("name") or sym,
-                "price":      row.get("price"),
-                "change_pct": float(pct),
-                "volume":     row.get("volume"),
-                "market_cap": int(mkt),
-            })
-    logger.info(f"FMP stock-screener: {len(results)} stocks with drop ≤ {DAILY_DROP_PCT}%")
+    logger.info(f"Total large-cap candidates: {len(results)}")
     return results
 
 
@@ -217,34 +256,17 @@ def get_earnings_days(symbol: str) -> int | None:
 
 def assemble_candidates() -> list[dict]:
     """
-    Combine biggest-losers + screener results, deduplicate, enrich with
-    market cap data, and apply final thresholds.
+    Get large-cap crash candidates from market screener.
+    All candidates already have market cap > $5B from the screener query.
     """
     raw: dict[str, dict] = {}
 
-    # Source 1: biggest losers
-    for s in get_biggest_losers():
+    for s in get_large_cap_losers():
         sym = s["symbol"]
         if sym not in raw:
             raw[sym] = s
 
-    # Source 2: screener-based losers
-    for s in get_screener_losers():
-        sym = s["symbol"]
-        if sym not in raw:
-            raw[sym] = s
-        elif s.get("market_cap"):
-            raw[sym]["market_cap"] = s["market_cap"]  # screener has better mktcap data
-
-    logger.info(f"Combined pool: {len(raw)} unique symbols before enrichment")
-
-    # Pre-filter: only keep drops below threshold (don't bother enriching the rest)
-    raw = {
-        sym: s for sym, s in raw.items()
-        if s.get("change_pct", 0) <= DAILY_DROP_PCT
-    }
-    logger.info(f"After daily-drop pre-filter ({DAILY_DROP_PCT}%): {len(raw)} symbols")
-
+    logger.info(f"Candidate pool: {len(raw)} large-cap stocks dropping ≤ {DAILY_DROP_PCT}%")
     return list(raw.values())
 
 
@@ -263,22 +285,28 @@ def enrich_and_filter(candidates: list[dict]) -> list[dict]:
         sym = stock["symbol"]
         logger.info(f"  [{i+1}/{len(candidates)}] Enriching {sym} (chg={stock.get('change_pct', 0):+.1f}%)")
 
-        # ── Profile (market cap, sector, avg volume) ──────────────────────────
-        profile = get_profile(sym)
-        mkt_cap = profile.get("market_cap") or stock.get("market_cap") or 0
+        # ── Profile (sector, beta, description — market cap already from screener) ──
+        # Market cap comes from the screener query (reliable). Profile adds sector/beta.
+        screener_mktcap = stock.get("market_cap") or 0
+        profile = {}
+        if not stock.get("sector"):   # only hit profile if screener didn't return sector
+            profile = get_profile(sym)
 
-        # Hard market cap filter — skip anything under $5B
-        if mkt_cap and mkt_cap < MIN_MARKET_CAP:
-            logger.info(f"    ✗ {sym}: market_cap ${mkt_cap/1e9:.1f}B < $5B threshold")
+        mkt_cap = screener_mktcap or profile.get("market_cap") or 0
+
+        # Hard market cap filter — REJECT if unknown or under $5B (no exceptions)
+        if mkt_cap < MIN_MARKET_CAP:
+            reason = "unknown" if mkt_cap == 0 else f"${mkt_cap/1e9:.1f}B"
+            logger.info(f"    ✗ {sym}: market_cap {reason} < ${MIN_MARKET_CAP/1e9:.0f}B — rejected")
             continue
 
         stock.update({
             "market_cap":  mkt_cap,
-            "sector":      profile.get("sector", ""),
-            "industry":    profile.get("industry", ""),
-            "avg_volume":  profile.get("avg_volume", 0),
+            "sector":      stock.get("sector") or profile.get("sector", ""),
+            "industry":    stock.get("industry") or profile.get("industry", ""),
+            "avg_volume":  stock.get("avg_volume") or profile.get("avg_volume", 0),
             "beta":        profile.get("beta", 0),
-            "exchange":    profile.get("exchange", ""),
+            "exchange":    stock.get("exchange") or profile.get("exchange", ""),
         })
 
         # ── Volume spike ──────────────────────────────────────────────────────
