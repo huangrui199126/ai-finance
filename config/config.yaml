@@ -14,13 +14,13 @@ apis:
 
   llm:
     provider: "openrouter"                          # openrouter | anthropic | openai
-    model: "openai/gpt-4o-mini"  # GPT-4o mini via OpenRouter — cheap and reliable
+    model: "openai/gpt-5.4-mini"  # GPT-5.4 mini via OpenRouter — released Mar 2026
     key_env: "OPENROUTER_API_KEY"
     base_url: "https://openrouter.ai/api/v1"
     site_url: "https://github.com/your-username/ai-finance"  # shown in OpenRouter dashboard
     app_name: "AI Stock Intelligence"
     enabled: true
-    max_tokens: 512
+    max_tokens: 900                 # increased for put-strategy evaluation prompt
     max_daily_calls: 30            # hard ceiling on LLM calls per day
 
 scanner:

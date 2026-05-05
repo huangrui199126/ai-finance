@@ -13,6 +13,10 @@
     .sentiment-neutral  { @apply text-slate-400; }
     .card { transition: transform .15s ease, box-shadow .15s ease; }
     .card:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(0,0,0,0.4); }
+    .decision-good    { border-color: rgb(52 211 153 / 0.5) !important; }
+    .decision-avoid   { border-color: rgb(248 113 113 / 0.3) !important; }
+    .score-ring { display:inline-flex; align-items:center; justify-content:center;
+                  width:2rem; height:2rem; border-radius:50%; font-weight:700; font-size:.85rem; }
   </style>
 </head>
 <body class="bg-slate-950 text-slate-100 min-h-screen font-sans">
@@ -55,11 +59,11 @@
         </div>
         <div class="w-px h-10 bg-slate-700"></div>
         <div>
-          <div class="text-slate-500 text-xs mb-0.5">Sentiment</div>
+          <div class="text-slate-500 text-xs mb-0.5">Put Candidates</div>
           <div class="flex gap-2 mt-0.5">
-            <span class="text-emerald-400 font-semibold" x-text="`↑${report?.sentiment_breakdown?.bullish ?? 0}`"></span>
-            <span class="text-red-400 font-semibold"     x-text="`↓${report?.sentiment_breakdown?.bearish ?? 0}`"></span>
-            <span class="text-slate-400 font-semibold"   x-text="`–${report?.sentiment_breakdown?.neutral ?? 0}`"></span>
+            <span class="text-emerald-400 font-semibold" x-text="`✅ ${countDecision('good_candidate')}`"></span>
+            <span class="text-red-400 font-semibold"     x-text="`❌ ${countDecision('avoid')}`"></span>
+            <span class="text-slate-400 font-semibold"   x-text="`⚠ ${countDecision('unclear')}`"></span>
           </div>
         </div>
       </div>
@@ -134,8 +138,10 @@
         <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
           <template x-for="stock in visibleStocks()" :key="stock.symbol">
             <a :href="`stock.html?symbol=${stock.symbol}`"
-               class="card block bg-slate-900 rounded-2xl p-5 border border-slate-800 hover:border-slate-700">
+               class="card block bg-slate-900 rounded-2xl p-5 border border-slate-800 hover:border-slate-700"
+               :class="decisionBorder(stock.decision)">
 
+              <!-- Header: symbol + score ring + decision badge -->
               <div class="flex items-start justify-between mb-3">
                 <div>
                   <div class="flex items-center gap-2">
@@ -146,17 +152,20 @@
                   </div>
                   <div class="text-xs text-slate-500 truncate max-w-[180px]" x-text="stock.name || ''"></div>
                 </div>
-                <div class="text-right">
-                  <div class="font-bold"
-                       :class="sentimentColor(stock.sentiment)"
-                       x-text="sentimentIcon(stock.sentiment) + ' ' + stock.sentiment"></div>
-                  <div class="text-xs text-slate-500 mt-0.5"
-                       x-text="`score ${stock.score?.toFixed(1) ?? '—'}`"></div>
+                <div class="flex items-center gap-2">
+                  <!-- Candidate score ring -->
+                  <div class="score-ring"
+                       :class="scoreRingColor(stock.candidate_score)"
+                       x-text="stock.candidate_score ?? stock.score?.toFixed(0) ?? '—'"></div>
+                  <!-- Decision badge -->
+                  <span class="text-xs font-bold px-2 py-0.5 rounded-full"
+                        :class="decisionBadge(stock.decision)"
+                        x-text="decisionLabel(stock.decision)"></span>
                 </div>
               </div>
 
               <!-- Price row -->
-              <div class="flex items-center gap-3 mb-3">
+              <div class="flex items-center gap-3 mb-2">
                 <div class="text-xl font-bold" x-text="stock.price ? `$${stock.price.toFixed(2)}` : '—'"></div>
                 <div class="text-sm font-semibold"
                      :class="stock.change_pct >= 0 ? 'text-emerald-400' : 'text-red-400'"
@@ -165,13 +174,46 @@
                 <div x-show="stock.volume_ratio >= 2"
                      class="text-xs bg-amber-900/40 text-amber-300 rounded px-1.5 py-0.5"
                      x-text="`${stock.volume_ratio?.toFixed(1)}× vol`"></div>
+                <div x-show="stock.iv_assessment === 'favorable'"
+                     class="text-xs bg-violet-900/40 text-violet-300 rounded px-1.5 py-0.5">
+                  IV ↑
+                </div>
+              </div>
+
+              <!-- Drop type + recovery outlook -->
+              <div class="flex items-center gap-2 mb-2 flex-wrap">
+                <div x-show="stock.drop_type"
+                     class="text-xs text-slate-500 italic"
+                     x-text="`Drop: ${stock.drop_type}`"></div>
+                <span x-show="stock.recovery_outlook && stock.recovery_outlook !== 'unclear'"
+                      class="text-xs px-1.5 py-0.5 rounded"
+                      :class="{
+                        'bg-emerald-900/40 text-emerald-400': stock.recovery_outlook === 'likely',
+                        'bg-sky-900/40 text-sky-400':        stock.recovery_outlook === 'possible',
+                        'bg-red-900/40 text-red-400':        stock.recovery_outlook === 'unlikely',
+                      }"
+                      x-text="`Recovery: ${stock.recovery_outlook}`"></span>
+              </div>
+
+              <!-- Structural flags (warning tags) -->
+              <div x-show="stock.structural_flags && stock.structural_flags.length"
+                   class="flex flex-wrap gap-1 mb-2">
+                <template x-for="flag in (stock.structural_flags || [])" :key="flag">
+                  <span class="text-xs bg-red-950/50 text-red-400 border border-red-900/40 rounded px-1.5 py-0.5"
+                        x-text="`⚠ ${flag}`"></span>
+                </template>
               </div>
 
               <!-- Summary -->
-              <div class="text-sm text-slate-400 leading-snug mb-3" x-text="stock.summary"></div>
+              <div class="text-sm text-slate-400 leading-snug mb-2" x-text="stock.summary"></div>
+
+              <!-- Strike zone reasoning -->
+              <div x-show="stock.strike_zone_reasoning && stock.decision === 'good_candidate'"
+                   class="text-xs text-emerald-400/80 bg-emerald-950/30 rounded px-2 py-1.5 mb-2 leading-snug"
+                   x-text="stock.strike_zone_reasoning"></div>
 
               <!-- Signal tags -->
-              <div class="flex flex-wrap gap-1.5">
+              <div class="flex flex-wrap gap-1.5 mt-1">
                 <template x-for="r in (stock.reasons || [])" :key="r">
                   <span class="text-xs bg-slate-800 rounded px-2 py-0.5 text-slate-400" x-text="r.replace('_', ' ')"></span>
                 </template>
@@ -223,6 +265,10 @@
           this.loading = false;
         },
 
+        countDecision(d) {
+          return (this.report?.all_stocks || []).filter(s => s.decision === d).length;
+        },
+
         visibleStocks() {
           let stocks = this.report?.all_stocks || [];
           if (this.activeTheme) {
@@ -230,6 +276,15 @@
           }
           if (this.sortBy === 'change') {
             stocks = [...stocks].sort((a, b) => Math.abs(b.change_pct || 0) - Math.abs(a.change_pct || 0));
+          } else {
+            // Default: good_candidates first, then by candidate_score desc
+            stocks = [...stocks].sort((a, b) => {
+              const decisionOrder = { good_candidate: 0, unclear: 1, avoid: 2 };
+              const da = decisionOrder[a.decision] ?? 1;
+              const db = decisionOrder[b.decision] ?? 1;
+              if (da !== db) return da - db;
+              return (b.candidate_score || 0) - (a.candidate_score || 0);
+            });
           }
           return stocks.slice(0, 30);
         },
@@ -260,6 +315,32 @@
         strengthBadge(s) {
           if (s === 'high')   return 'bg-red-900/50 text-red-300';
           if (s === 'medium') return 'bg-amber-900/50 text-amber-300';
+          return 'bg-slate-800 text-slate-400';
+        },
+
+        decisionBorder(d) {
+          if (d === 'good_candidate') return 'decision-good';
+          if (d === 'avoid')          return 'decision-avoid';
+          return '';
+        },
+
+        decisionBadge(d) {
+          if (d === 'good_candidate') return 'bg-emerald-900/60 text-emerald-300';
+          if (d === 'avoid')          return 'bg-red-900/50 text-red-300';
+          return 'bg-slate-800 text-slate-400';
+        },
+
+        decisionLabel(d) {
+          if (d === 'good_candidate') return '✅ Candidate';
+          if (d === 'avoid')          return '❌ Avoid';
+          return '⚠ Unclear';
+        },
+
+        scoreRingColor(s) {
+          if (!s) return 'bg-slate-800 text-slate-400';
+          if (s >= 8) return 'bg-emerald-900/60 text-emerald-300';
+          if (s >= 6) return 'bg-sky-900/60 text-sky-300';
+          if (s >= 4) return 'bg-amber-900/50 text-amber-300';
           return 'bg-slate-800 text-slate-400';
         },
       };
