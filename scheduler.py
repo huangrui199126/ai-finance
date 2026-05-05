@@ -2,18 +2,19 @@ from __future__ import annotations
 """
 scheduler.py — Main Orchestrator
 
-Runs two recurring jobs:
+Pipeline (event-driven, runs once daily after market close):
 
-  HOURLY:
-    1. collect.py   — fetch quotes for all stocks
-    2. scan.py      — anomaly detection
-    3. themes.py    — theme detection (uses news from scan)
+  SCREEN (replaces collect + scan):
+    1. screen.py    — market-wide crash screener (market cap > $5B, drop ≤ -8%)
 
-  DAILY (17:45 ET, after market close):
-    1. fundamental_filter.py  — quality gate + scoring
-    2. analyze.py             — LLM analysis
-    3. report.py              — generate daily JSON
-    4. push.py                — git commit + push
+  ENRICH:
+    2. themes.py    — theme detection from screened candidates
+
+  ANALYZE:
+    3. fundamental_filter.py  — quality gate + scoring
+    4. analyze.py             — two-stage LLM (drop classifier → put evaluator)
+    5. report.py              — generate daily JSON
+    6. push.py                — git commit + push
 
 Usage:
     python scheduler.py          # run scheduler (blocking)
@@ -42,19 +43,19 @@ logger = logging.getLogger("scheduler")
 
 # ─── Job definitions ──────────────────────────────────────────────────────────
 
-def job_hourly():
-    logger.info("═══ HOURLY JOB START ═══")
+def job_screen():
+    """
+    Event-driven screener — replaces the old collect + scan hourly loop.
+    Queries the whole market for biggest crashes in quality companies.
+    """
+    logger.info("═══ SCREEN JOB START ═══")
     try:
-        from scripts.collect import run as collect
-        collect()
+        from scripts.screen import run as screen
+        result = screen()
+        n = result.get("total_qualified", 0)
+        logger.info(f"Screen complete: {n} candidates → {result.get('symbols', [])}")
     except Exception as e:
-        logger.error(f"collect failed: {e}")
-
-    try:
-        from scripts.scan import run as scan
-        scan()
-    except Exception as e:
-        logger.error(f"scan failed: {e}")
+        logger.error(f"screen failed: {e}")
 
     try:
         from scripts.themes import run as themes
@@ -62,11 +63,14 @@ def job_hourly():
     except Exception as e:
         logger.error(f"themes failed: {e}")
 
-    logger.info("═══ HOURLY JOB DONE ═══")
+    logger.info("═══ SCREEN JOB DONE ═══")
 
 
 def job_daily():
     logger.info("═══ DAILY JOB START ═══")
+
+    # Run the screener first to get today's crash candidates
+    job_screen()
 
     try:
         from scripts.fundamental_filter import run as ff
@@ -98,7 +102,6 @@ def job_daily():
 def run_once():
     """Run the full pipeline immediately (for testing)."""
     logger.info("Running full pipeline once...")
-    job_hourly()
     job_daily()
     logger.info("Full pipeline complete.")
 
@@ -121,32 +124,21 @@ def main():
 
     scheduler = BlockingScheduler(timezone=tz)
 
-    # Hourly: collect + scan + themes
-    scheduler.add_job(
-        job_hourly,
-        trigger="interval",
-        hours=1,
-        id="hourly",
-        name="Hourly: collect + scan + themes",
-        misfire_grace_time=300,
-    )
-
-    # Daily at market close: filter + analyze + report + push
+    # Daily at market close: screen + filter + analyze + report + push
     scheduler.add_job(
         job_daily,
         trigger=CronTrigger(hour=int(hour), minute=int(minute), timezone=tz),
         id="daily",
-        name=f"Daily at {analyze_time} ET: analyze + report + push",
+        name=f"Daily at {analyze_time} ET: screen + analyze + report + push",
         misfire_grace_time=600,
     )
 
     logger.info(f"Scheduler starting — timezone: {tz}")
-    logger.info(f"  Hourly job: every 1h (collect + scan + themes)")
-    logger.info(f"  Daily job:  {analyze_time} ET (filter + analyze + report + push)")
+    logger.info(f"  Daily job: {analyze_time} ET (screen → themes → filter → analyze → report → push)")
 
-    # Run hourly job immediately on start
-    logger.info("Running initial hourly job...")
-    job_hourly()
+    # Run full pipeline immediately on start
+    logger.info("Running initial pipeline...")
+    job_daily()
 
     try:
         scheduler.start()
