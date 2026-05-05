@@ -1,15 +1,15 @@
 {
   "date": "2026-05-05",
-  "generated_at": "2026-05-05T07:34:50.546746+00:00",
+  "generated_at": "2026-05-05T07:35:47.573492+00:00",
   "market_mood": "cautiously bearish",
   "sentiment_breakdown": {
     "bullish": 3,
-    "bearish": 23,
+    "bearish": 24,
     "neutral": 23
   },
   "total_scanned": 64,
-  "total_analyzed": 49,
-  "llm_analyzed": 38,
+  "total_analyzed": 50,
+  "llm_analyzed": 39,
   "top_themes": [
     {
       "name": "Electric Vehicles",
@@ -33,6 +33,61 @@
     }
   ],
   "top_stocks": [
+    {
+      "symbol": "DUOL",
+      "theme": "",
+      "candidate_score": 1,
+      "drop_type": "unclear",
+      "fundamental_quality": "weak",
+      "iv_assessment": "unfavorable",
+      "key_drivers": [
+        "Shares dropped 14% after Q1 revenue missed estimates even though earnings beat expectations",
+        "No guidance, balance sheet, or competitive-position data is available to determine whether the weakness is temporary or structural"
+      ],
+      "key_risks": [
+        "Without guidance or fundamentals, the main risk is that the revenue miss may reflect a more persistent slowdown rather than a short-term overreaction."
+      ],
+      "options_context": "Gated out at drop-classification stage \u2014 structural risk detected.",
+      "strike_zone_reasoning": "",
+      "summary": "Without guidance or fundamentals, the main risk is that the revenue miss may reflect a more persistent slowdown rather than a short-term overreaction.",
+      "decision": "avoid",
+      "sentiment": "bearish",
+      "llm_used": true,
+      "drop_classification": "unclear",
+      "drop_confidence": "low",
+      "structural_flags": [],
+      "sector_trend": "unknown",
+      "recovery_outlook": "unclear",
+      "drop_verdict": "high_risk",
+      "price": 152.0,
+      "change_pct": -14.0,
+      "volume_ratio": 0.0,
+      "news_count": 23,
+      "earnings_days": 0,
+      "score": 8.8,
+      "reasons": [
+        "price_move",
+        "earnings_event",
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Is There An Opportunity In Duolingo (DUOL) After A 78% One Year Share Price Drop",
+        "Duolingo, Inc. (DUOL) Q1 2026 Earnings Call Transcript",
+        "Duolingo, Inc. (DUOL) Q1 Earnings and Revenues Surpass Estimates",
+        "Duolingo (NASDAQ:DUOL) Shares Drop 14% After Q1 Revenue Miss Despite Earnings Beat",
+        "Duolingo Q1 Earnings Call Highlights"
+      ],
+      "fundamentals": "Fundamentals data not available",
+      "iv_estimate": {
+        "iv_level": "high",
+        "iv_percentile": "not available \u2014 estimated from price action",
+        "put_call_ratio": "not available",
+        "unusual_flow": "not available",
+        "atm_iv": "not available",
+        "note": "Live options data unavailable; IV level estimated from 14.0% price move"
+      },
+      "analyzed_at": "2026-05-05T07:35:47.570775+00:00"
+    },
     {
       "symbol": "CRM",
       "theme": "Cloud & SaaS",
@@ -472,42 +527,64 @@
         "note": "Live options data unavailable; IV level estimated from 1.2% price move"
       },
       "analyzed_at": "2026-05-05T06:41:34.883205+00:00"
-    },
-    {
-      "symbol": "META",
-      "theme": "",
-      "drivers": [
-        "Negative commentary from Jim Cramer impacting sentiment",
-        "Increased trading volume indicating heightened interest",
-        "Broader market trends affecting tech stocks"
-      ],
-      "risks": [
-        "Potential for further negative sentiment from analysts",
-        "Market volatility due to external economic factors"
-      ],
-      "sentiment": "bearish",
-      "summary": "Meta Platforms, Inc. is experiencing a slight decline in price amid negative analyst commentary and increased trading volume.",
-      "llm_used": true,
-      "price": 608.75,
-      "change_pct": -0.5164,
-      "volume_ratio": 1.39,
-      "news_count": 44,
-      "earnings_days": null,
-      "score": 3.57,
-      "reasons": [
-        "news_spike"
-      ],
-      "news_headlines": [
-        "AI Capex Boom Drives Hottest ETF Trade Into Semiconductors, Not Crypto",
-        "Jim Cramer on Meta: \u201cIt\u2019s Being Clubbed Like a Baby Seal\u201d",
-        "Jim Cramer Says Stocks Like Seagate  \u201cAre Really Overextended\u201d For Him",
-        "Her Dying Wish Was To Give Their Kids A Part Of Home Equity. Now, He's Getting Married Again, And Wants To Take Back $400K From His Kids",
-        "Traders Grapple With Two-Sided Tail Risk as Stocks Regain Highs"
-      ],
-      "analyzed_at": "2026-05-04T06:50:44.842204+00:00"
     }
   ],
   "all_stocks": [
+    {
+      "symbol": "DUOL",
+      "theme": "",
+      "candidate_score": 1,
+      "drop_type": "unclear",
+      "fundamental_quality": "weak",
+      "iv_assessment": "unfavorable",
+      "key_drivers": [
+        "Shares dropped 14% after Q1 revenue missed estimates even though earnings beat expectations",
+        "No guidance, balance sheet, or competitive-position data is available to determine whether the weakness is temporary or structural"
+      ],
+      "key_risks": [
+        "Without guidance or fundamentals, the main risk is that the revenue miss may reflect a more persistent slowdown rather than a short-term overreaction."
+      ],
+      "options_context": "Gated out at drop-classification stage \u2014 structural risk detected.",
+      "strike_zone_reasoning": "",
+      "summary": "Without guidance or fundamentals, the main risk is that the revenue miss may reflect a more persistent slowdown rather than a short-term overreaction.",
+      "decision": "avoid",
+      "sentiment": "bearish",
+      "llm_used": true,
+      "drop_classification": "unclear",
+      "drop_confidence": "low",
+      "structural_flags": [],
+      "sector_trend": "unknown",
+      "recovery_outlook": "unclear",
+      "drop_verdict": "high_risk",
+      "price": 152.0,
+      "change_pct": -14.0,
+      "volume_ratio": 0.0,
+      "news_count": 23,
+      "earnings_days": 0,
+      "score": 8.8,
+      "reasons": [
+        "price_move",
+        "earnings_event",
+        "news_spike"
+      ],
+      "news_headlines": [
+        "Is There An Opportunity In Duolingo (DUOL) After A 78% One Year Share Price Drop",
+        "Duolingo, Inc. (DUOL) Q1 2026 Earnings Call Transcript",
+        "Duolingo, Inc. (DUOL) Q1 Earnings and Revenues Surpass Estimates",
+        "Duolingo (NASDAQ:DUOL) Shares Drop 14% After Q1 Revenue Miss Despite Earnings Beat",
+        "Duolingo Q1 Earnings Call Highlights"
+      ],
+      "fundamentals": "Fundamentals data not available",
+      "iv_estimate": {
+        "iv_level": "high",
+        "iv_percentile": "not available \u2014 estimated from price action",
+        "put_call_ratio": "not available",
+        "unusual_flow": "not available",
+        "atm_iv": "not available",
+        "note": "Live options data unavailable; IV level estimated from 14.0% price move"
+      },
+      "analyzed_at": "2026-05-05T07:35:47.570775+00:00"
+    },
     {
       "symbol": "CRM",
       "theme": "Cloud & SaaS",
