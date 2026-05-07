@@ -2,8 +2,8 @@ name: Daily AI Finance Pipeline
 
 on:
   schedule:
-    # 5:45 PM ET = 21:45 UTC (15 min after market close)
-    - cron: "45 21 * * 1-5"
+    # 4:15 PM ET = 20:15 UTC — catches post-earnings IV spikes right at close
+    - cron: "15 20 * * 1-5"
   workflow_dispatch:  # allow manual trigger
 
 jobs:
