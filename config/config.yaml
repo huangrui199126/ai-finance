@@ -37,7 +37,7 @@ report:
 
 scheduler:
   collect_interval_hours: 1
-  analyze_time: "17:45"           # ET — 15 min after market close
+  analyze_time: "16:15"           # ET — 15 min after market close, catches after-hours earnings drops while IV is still elevated
   timezone: "America/New_York"
 
 github:
